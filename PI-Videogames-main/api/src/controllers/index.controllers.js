@@ -6,7 +6,7 @@ const getApiInfo = async () => {
   try {
     console.log();
     const response = await axios.get(
-      `https://api.rawg.io/api/games?key=${API_KEY}`
+      `https://api.rawg.io/api/games?key=${API_KEY}&page_size=100`
     );
     const apiInfo = response.data.results.map((game) => {
       return {
