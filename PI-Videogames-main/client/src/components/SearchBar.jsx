@@ -31,9 +31,9 @@ const Searchbar = () => {
 
   return (
     <div>
-      <form>
+      <form onSubmit={{ handleSearch }}>
         <input type="text" placeholder="Burscar..." onChange={handleInput} />
-        <button onClick={handleSearch}>Buscar</button>
+        <button type="submit">Buscar</button>
         <button onClick={handleShowAll}>Mostrar todos</button>
       </form>
     </div>
