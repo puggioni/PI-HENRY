@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import s from "../css/landing.module.css";
+import s from "./landing.module.css";
 const Landing = () => {
   return (
     <div className={s.landingContainer}>

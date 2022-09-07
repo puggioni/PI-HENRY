@@ -2,10 +2,10 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
-import { getVideogames } from "../actions";
-import s from "../css/home.module.css";
-import Filters from "./Filters";
-import SearchBar from "./SearchBar";
+import { getVideogames } from "../../actions";
+import s from "./home.module.css";
+import Filters from "../Filters/Filters";
+import SearchBar from "../SearchBar/SearchBar";
 function Home() {
   const dispatch = useDispatch();
   const videogames = useSelector((state) => state.videogames);

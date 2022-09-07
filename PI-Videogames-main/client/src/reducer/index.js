@@ -10,6 +10,7 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         videogames: action.payload,
+        filtered: action.payload,
       };
     case "GET_GENRES":
       return {

@@ -1,7 +1,7 @@
 import React from "react";
-import { filterBy, orderBy } from "../actions/index";
+import { filterBy, orderBy } from "../../actions/index";
 import { useDispatch, useSelector } from "react-redux";
-import s from "../css/filters.module.css";
+import s from "./filters.module.css";
 
 const Filters = () => {
   const genres = useSelector((state) => state.genres);
