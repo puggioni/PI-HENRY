@@ -1,10 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import Landing from "./components/Landing";
+import VideogameForm from "./components/VideogameForm";
 function App() {
   return (
     <Router>
-      <div className="App">
-        <h1>Henry Videogames</h1>
-      </div>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/create-videogame" element={<VideogameForm />} />
+      </Routes>
     </Router>
   );
 }
