@@ -1,11 +1,11 @@
 .cardContainer {
-  flex-wrap: wrap;
-  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
   margin: 20px;
   padding: 20px;
   border-radius: 10px;
-  background-color: rgba(245, 245, 220, 0.377);
-  box-shadow: 6px 5px 9px 4px #53f9ffa9;
+  background-color: rgba(245, 245, 220, 0.575);
+  box-shadow: 6px 5px 9px 4px #30b1ab36;
   width: fit-content;
 }
 
@@ -13,17 +13,17 @@
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
-  font-size: x-large;
+  font-size: 20px;
   font-weight: 600;
   color: #ffffff;
-  list-style: none;
+  text-decoration: none;
 }
 .gameImage {
   display: flex;
   margin: 10px;
   overflow: hidden;
-  width: 400px;
-  height: 400px;
+  width: 200px;
+  height: 200px;
 }
 
 .gameImage img {

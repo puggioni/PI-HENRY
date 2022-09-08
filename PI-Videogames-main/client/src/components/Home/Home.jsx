@@ -7,13 +7,26 @@ import s from "./home.module.css";
 import Filters from "../Filters/Filters";
 import SearchBar from "../SearchBar/SearchBar";
 import VgCard from "../vgCard/vgCard";
+import { useState } from "react";
+import Pagination from "../Pagination/Pagination";
 function Home() {
   const dispatch = useDispatch();
   const videogames = useSelector((state) => state.filtered);
   useEffect(() => {
     dispatch(getVideogames());
   }, [dispatch]);
-  console.log(videogames);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [videogamesPerPage, setVideogamesPerPage] = useState(15);
+  const indexOfLastVideogame = currentPage * videogamesPerPage;
+  const indexOfFirstVideogame = indexOfLastVideogame - videogamesPerPage;
+  const currentVideogames = videogames.slice(
+    indexOfFirstVideogame,
+    indexOfLastVideogame
+  );
+
+  const paginado = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
   return (
     <div className={s.homeContainer}>
       <nav>
@@ -22,9 +35,14 @@ function Home() {
       <h1> Henry Games</h1>
       <SearchBar />
       <Filters />
+      <Pagination
+        videogamesPerPage={videogamesPerPage}
+        allVideogames={videogames.length}
+        paginado={paginado}
+      ></Pagination>
       <div className={s.vgContainer}>
-        {videogames.length > 1 ? (
-          videogames.map((g) => (
+        {currentVideogames.length &&
+          currentVideogames.map((g) => (
             <VgCard
               key={g.id}
               name={g.name}
@@ -33,24 +51,7 @@ function Home() {
               image={g.background_image}
               id={g.id}
             />
-          ))
-        ) : typeof videogames === "string" ? (
-          <div>
-            <img
-              className="nonono"
-              src="../../assets/notFound/404"
-              alt="404"
-            ></img>
-          </div>
-        ) : (
-          <div className={s.loader}>
-            <img
-              className="loading"
-              src="../../assets/loader/loader"
-              alt=""
-            ></img>
-          </div>
-        )}
+          ))}
       </div>
     </div>
   );

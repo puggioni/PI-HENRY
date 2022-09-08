@@ -28,7 +28,7 @@ const Filters = () => {
           <option>
             {genres &&
               genres.map((g) => (
-                <option key={g.id} value={g.name}>
+                <option key={g.name} value={g.name}>
                   {g.name}
                 </option>
               ))}

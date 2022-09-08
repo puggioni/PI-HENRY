@@ -4,11 +4,17 @@ const { API_KEY } = process.env;
 
 const getApiInfo = async () => {
   try {
-    console.log();
-    const response = await axios.get(
-      `https://api.rawg.io/api/games?key=${API_KEY}&page_size=100`
-    );
-    const apiInfo = response.data.results.map((game) => {
+    const response1 = await axios
+      .get(`https://api.rawg.io/api/games?key=${API_KEY}&page_size=40&page=1`)
+      .then((res) => res.data.results);
+    const response2 = await axios
+      .get(`https://api.rawg.io/api/games?key=${API_KEY}&page_size=40&page=2`)
+      .then((res) => res.data.results);
+    const response3 = await axios
+      .get(`https://api.rawg.io/api/games?key=${API_KEY}&page_size=20&page=3`)
+      .then((res) => res.data.results);
+    const response = response1.concat(response2, response3);
+    const apiInfo = response.map((game) => {
       return {
         previous: game.previous,
         next: game.next,
