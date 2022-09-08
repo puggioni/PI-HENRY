@@ -23,10 +23,7 @@ function Home() {
     indexOfFirstVideogame,
     indexOfLastVideogame
   );
-
-  const paginado = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
+  const maximumPages = Math.ceil(videogames.length / videogamesPerPage);
   return (
     <div className={s.homeContainer}>
       <nav>
@@ -36,9 +33,10 @@ function Home() {
       <SearchBar />
       <Filters />
       <Pagination
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
         videogamesPerPage={videogamesPerPage}
-        allVideogames={videogames.length}
-        paginado={paginado}
+        maximumPages={maximumPages}
       ></Pagination>
       <div className={s.vgContainer}>
         {currentVideogames.length &&

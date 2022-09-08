@@ -1,25 +1,27 @@
 import React from "react";
+import { useState } from "react";
 
-const Pagination = ({ charactersPerPage, allCharacters, paginado }) => {
-  const pageNumbers = [];
-  for (let i = 0; i <= Math.ceil(allCharacters / charactersPerPage); i++) {
-    pageNumbers.push(i);
-  }
+const Pagination = ({ currentPage, setCurrentPage, maximumPages }) => {
+  const [input, setInput] = useState(1);
+  const nextPage = () => {
+    setInput(input + 1);
+    setCurrentPage(currentPage + 1);
+  };
+  const prevPage = () => {
+    setInput(input - 1);
+    setCurrentPage(currentPage - 1);
+  };
+  const handleInput = (e) => {
+    setInput(e.target.value);
+    setCurrentPage(e.target.value);
+  };
   return (
-    <nav>
-      <ul>
-        {pageNumbers.length &&
-          pageNumbers.map((number) => () => {
-            return (
-              <li key={number}>
-                <a onClick={() => paginado(number)} href>
-                  {number}
-                </a>
-              </li>
-            );
-          })}
-      </ul>
-    </nav>
+    <div>
+      <button onClick={prevPage}>Prev</button>
+      <input type="number" value={input} onChange={handleInput}></input>
+      <p>de: {maximumPages}</p>
+      <button onClick={nextPage}>Next</button>
+    </div>
   );
 };
 
