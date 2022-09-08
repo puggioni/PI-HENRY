@@ -1,5 +1,11 @@
 import axios from "axios";
-import { FILTER_BY, GET_GENRES, GET_VIDEOGAMES, ORDER_BY } from "./const";
+import {
+  FILTER_BY,
+  GET_DETAILS,
+  GET_GENRES,
+  GET_VIDEOGAMES,
+  ORDER_BY,
+} from "./const";
 
 export function getVideogames() {
   return async function (dispatch) {
@@ -7,7 +13,12 @@ export function getVideogames() {
     dispatch({ type: GET_VIDEOGAMES, payload: response.data });
   };
 }
-
+export function getDetails() {
+  return async function (dispatch) {
+    const response = await axios.get("http://localhost:3001/videogames/:id");
+    dispatch({ type: GET_DETAILS, payload: response.data });
+  };
+}
 export function searchByName(name) {
   return async function (dispatch) {
     const response = await axios.get(

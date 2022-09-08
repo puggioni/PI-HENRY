@@ -1,18 +1,19 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getVideogames } from "../../actions";
 import s from "./home.module.css";
 import Filters from "../Filters/Filters";
 import SearchBar from "../SearchBar/SearchBar";
+import VgCard from "../vgCard/vgCard";
 function Home() {
   const dispatch = useDispatch();
-  const videogames = useSelector((state) => state.videogames);
+  const videogames = useSelector((state) => state.filtered);
   useEffect(() => {
     dispatch(getVideogames());
   }, [dispatch]);
-
+  console.log(videogames);
   return (
     <div className={s.homeContainer}>
       <nav>
@@ -21,17 +22,35 @@ function Home() {
       <h1> Henry Games</h1>
       <SearchBar />
       <Filters />
-      <div>
-        {videogames.map((v) => () => {
-          return (
-            <div>
-              <h3>{v.name}</h3>
-              <img src={v.image} alt={v.name} />
-              <p>{v.description}</p>
-              <NavLink to={`/videogame/${v.id}`}>Detalles</NavLink>
-            </div>
-          );
-        })}
+      <div className={s.vgContainer}>
+        {videogames.length > 1 ? (
+          videogames.map((g) => (
+            <VgCard
+              key={g.id}
+              name={g.name}
+              rating={g.rating}
+              genres={g.genres}
+              image={g.background_image}
+              id={g.id}
+            />
+          ))
+        ) : typeof videogames === "string" ? (
+          <div>
+            <img
+              className="nonono"
+              src="../../assets/notFound/404"
+              alt="404"
+            ></img>
+          </div>
+        ) : (
+          <div className={s.loader}>
+            <img
+              className="loading"
+              src="../../assets/loader/loader"
+              alt=""
+            ></img>
+          </div>
+        )}
       </div>
     </div>
   );

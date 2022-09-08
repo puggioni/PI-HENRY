@@ -1,0 +1,45 @@
+.cardContainer {
+  flex-wrap: wrap;
+  border: 1px solid black;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(245, 245, 220, 0.377);
+  box-shadow: 6px 5px 9px 4px #53f9ffa9;
+  width: fit-content;
+}
+
+.titleGame {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: x-large;
+  font-weight: 600;
+  color: #ffffff;
+  list-style: none;
+}
+.gameImage {
+  display: flex;
+  margin: 10px;
+  overflow: hidden;
+  width: 400px;
+  height: 400px;
+}
+
+.gameImage img {
+  object-fit: cover;
+  width: 100%;
+  min-height: 100%;
+  border-radius: 10px;
+}
+
+s.rating {
+  display: flex;
+  justify-content: center;
+  height: 35px;
+}
+
+s.genres {
+  display: flex;
+  justify-content: center;
+}
