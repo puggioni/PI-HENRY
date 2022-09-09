@@ -1,52 +1,62 @@
 import React from "react";
-import { filterBy, orderBy } from "../../actions/index";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { filterByGenre, getGenres, orderBy } from "../../actions";
 import s from "./filters.module.css";
 
 const Filters = () => {
-  const genres = useSelector((state) => state.genres);
   const dispatch = useDispatch();
   const handleSelect = (e) => {
-    dispatch(filterBy(e.target.value));
+    dispatch(filterByGenre(e.target.value));
   };
-  const handleOrder = (e) => {
+  const handleSelect2 = (e) => {
     dispatch(orderBy(e.target.value));
   };
+
+  useEffect(() => {
+    dispatch(getGenres());
+  }, [dispatch]);
+  const genres = useSelector((state) => state.genres);
+
   return (
     <div className={s.filterContainer}>
-      <select className={s.selector} onChange={handleSelect}>
-        <option className={s.option} value="todos">
-          Todos
-        </option>
-        <option className={s.option} value="creados">
-          Creados
-        </option>
-        <option className={s.option} value="api">
-          Api
-        </option>
-        <optgroup className={s.optionGroup} label="Generos">
-          <option>
-            {genres &&
-              genres.map((g) => (
-                <option key={g.name} value={g.name}>
+      <select className={s.filterSelector} onChange={handleSelect}>
+        <optgroup className={s.filterOptionGroup} label="Generos">
+          {genres &&
+            genres.map((g) => {
+              return (
+                <option key={g.id} value={g.name} className={s.filterOption}>
                   {g.name}
                 </option>
-              ))}
-          </option>
+              );
+            })}
         </optgroup>
       </select>
-      <select className={s.selector} onChange={handleOrder}>
-        <optgroup className={s.optionGroup} label="Orden">
-          <option className={s.option} value="asc">
-            {" "}
-            A-Z
+
+      <select
+        className={s.filterSelector}
+        onChange={handleSelect2}
+        name=""
+        id=""
+      >
+        <option className={s.filterOption} value="default">
+          ORDEN...
+        </option>
+        <optgroup className={s.filterOptionGroup} label="Rating">
+          <option className={s.filterOption} value="asc">
+            Mayor a Menor
           </option>
-          <option className={s.option} value="desc">
-            Z-A
+          <option className={s.filterOption} value="desc">
+            Menor a Mayor
           </option>
         </optgroup>
-        <optgroup className={s.optionGroup} label="Rating">
-          <option className={s.option} value="rating" />
+        <optgroup className={s.filterOptionGroup} label="Alphabetic">
+          <option className={s.filterOption} value="A-Z">
+            A - Z
+          </option>
+          <option className={s.filterOption} value="Z-A">
+            Z - A
+          </option>
         </optgroup>
       </select>
     </div>

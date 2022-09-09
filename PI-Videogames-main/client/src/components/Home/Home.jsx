@@ -12,6 +12,7 @@ import Pagination from "../Pagination/Pagination";
 function Home() {
   const dispatch = useDispatch();
   const videogames = useSelector((state) => state.filtered);
+
   useEffect(() => {
     dispatch(getVideogames());
   }, [dispatch]);

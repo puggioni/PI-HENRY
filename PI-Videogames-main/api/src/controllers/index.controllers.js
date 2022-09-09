@@ -16,8 +16,6 @@ const getApiInfo = async () => {
     const response = response1.concat(response2, response3);
     const apiInfo = response.map((game) => {
       return {
-        previous: game.previous,
-        next: game.next,
         id: game.id,
         name: game.name,
         released: game.released,

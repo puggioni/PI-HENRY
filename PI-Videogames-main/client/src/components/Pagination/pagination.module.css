@@ -1,0 +1,24 @@
+.paginationContainer {
+  display: flex;
+  justify-content: center;
+  margin: 20px 20px 0 20px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  width: 400px;
+  height: 80px;
+}
+.button {
+  margin: 0px 20px;
+  background: none;
+  border: none;
+  color: aqua;
+  font-size: 20px;
+}
+.button:hover {
+  background: #8f6838;
+  text-decoration: none;
+}

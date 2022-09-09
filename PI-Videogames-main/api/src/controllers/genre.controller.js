@@ -21,7 +21,7 @@ const getGenres = async (req, res) => {
       });
     });
     const allGenres = await Genre.findAll();
-    res.status(200).send(allGenres);
+    res.status(200).json(allGenres);
   } catch (error) {
     res.send({ error: error.message });
   }
