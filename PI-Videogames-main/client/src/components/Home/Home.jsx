@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { getVideogames } from "../../actions";
 import s from "./home.module.css";
 import Filters from "../Filters/Filters";
-import SearchBar from "../SearchBar/SearchBar";
 import VgCard from "../vgCard/vgCard";
 import { useState } from "react";
 import Pagination from "../Pagination/Pagination";
@@ -27,18 +26,24 @@ function Home() {
   const maximumPages = Math.ceil(videogames.length / videogamesPerPage);
   return (
     <div className={s.homeContainer}>
-      <nav>
-        <Link to="/videogame">Crear videojuego</Link>
+      <nav className={s.navHome}>
+        <h1 className={s.homeTittle}> Henry Games</h1>
+        <div className={s.homeButton}>
+          <Link to="/videogame" className={s.linkHome}>
+            Crear videojuego
+          </Link>
+        </div>
       </nav>
-      <h1> Henry Games</h1>
-      <SearchBar />
-      <Filters />
+      <div className={s.homeFiltersContainer}>
+        <Filters />
+      </div>
       <Pagination
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
         videogamesPerPage={videogamesPerPage}
         maximumPages={maximumPages}
       ></Pagination>
+
       <div className={s.vgContainer}>
         {currentVideogames.length &&
           currentVideogames.map((g) => (

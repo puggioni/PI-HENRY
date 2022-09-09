@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const VgCard = (props) => {
   return (
     <div className={s.cardContainer}>
-      <Link to={`/videogame/${props.id}`}>
+      <Link to={`/videogame/${props.id}`} className={s.link}>
         <h1 className={s.titleGame}>{props.name}</h1>
       </Link>
       <div className={s.gameImage}>
@@ -19,7 +19,7 @@ const VgCard = (props) => {
       </div>
       <div className={s.genres}>
         <p>
-          Genres:
+          Genres:{" "}
           {`${
             typeof props.genres === "string"
               ? props.genres

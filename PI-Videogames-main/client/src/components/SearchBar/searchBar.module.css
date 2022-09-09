@@ -1,9 +1,13 @@
-.filterContainer {
+.searchBarContainer {
+  margin-right: 20px;
+}
+
+.searchBarContainer form {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 50px auto 50px auto;
-  width: 70%;
+  margin: 10px auto 10px auto;
+  width: fit-content;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.14);
   backdrop-filter: blur(9px);
@@ -16,33 +20,22 @@
   border-radius: 8px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
-
-.selectorContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0px 20px;
+.searchBarContainer input {
+  margin: 0px 10px;
   background: none;
   border: none;
   color: aqua;
   font-size: 20px;
 }
-
-.filterSelector {
+.searchBarContainer input::placeholder {
+  color: aqua;
+}
+.searchButton {
   margin: 0px 20px;
+  padding: 10px 10px;
   background: rgba(255, 255, 255, 0.329);
-  height: 75px;
   border: none;
   border-radius: 8px;
-  color: aqua;
+  color: aquamarine;
   font-size: 20px;
-}
-
-.filterSelector optgroup {
-  background-color: darkgray;
-  color: white;
-}
-.filterSelector option {
-  background: grey;
-  color: white;
 }

@@ -1,15 +1,31 @@
 .paginationContainer {
   display: flex;
   justify-content: center;
-  margin: 20px 20px 0 20px;
+  margin: 20px 20px 0 790px;
   align-items: center;
   background: rgba(255, 255, 255, 0.14);
   border-radius: 8px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(9px);
   -webkit-backdrop-filter: blur(9px);
-  width: 400px;
+  width: 250px;
   height: 80px;
+}
+.paginationContainer input {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  margin-right: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.329);
+  color: aqua;
+  font-size: 20px;
+  text-align: center;
+}
+.paginationContainer p {
+  margin: 0 10px;
+  color: aqua;
+  font-size: 20px;
 }
 .button {
   margin: 0px 20px;

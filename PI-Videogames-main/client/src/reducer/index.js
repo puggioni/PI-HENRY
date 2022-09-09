@@ -2,6 +2,7 @@ const initialState = {
   videogames: [],
   genres: [],
   filtered: [],
+  backup: [],
   details: {},
 };
 
@@ -11,6 +12,7 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         videogames: action.payload,
+        backup: action.payload,
         filtered: action.payload,
       };
     case "GET_DETAILS":
@@ -27,6 +29,7 @@ function rootReducer(state = initialState, action) {
     case "SEARCH_BY_NAME":
       return {
         ...state,
+        backup: state.videogames,
         filtered: action.payload,
       };
     case "ORDER_BY":
@@ -69,7 +72,7 @@ function rootReducer(state = initialState, action) {
           ),
         };
       } else {
-        return { ...state, filtered: state.videogames };
+        return { ...state, filtered: state.backup };
       }
     case "FILTER_BY_GENRE":
       if (action.payload === "Todos") {
@@ -77,7 +80,7 @@ function rootReducer(state = initialState, action) {
       } else {
         return {
           ...state,
-          filtered: state.videogames.filter((game) => {
+          filtered: state.backup.filter((game) => {
             return game.genres.find((genre) => {
               return genre === action.payload;
             });

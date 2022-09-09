@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { searchByName, getVideogames } from "../../actions/index";
-
+import s from "./searchBar.module.css";
 const Searchbar = () => {
   const [input, setInput] = useState({
     buscar: "",
@@ -30,11 +30,21 @@ const Searchbar = () => {
   };
 
   return (
-    <div>
+    <div className={s.searchBarContainer}>
       <form onSubmit={handleSearch}>
-        <input type="text" placeholder="Burscar..." onChange={handleInput} />
-        <button type="submit">Buscar</button>
-        <button onClick={handleShowAll}>Mostrar todos</button>
+        <input
+          name="buscar"
+          placeholder="Buscar Juego..."
+          onChange={handleInput}
+          value={input.buscar}
+          autoComplete="off"
+        />
+        <button type="submit" className={s.searchButton}>
+          Buscar
+        </button>
+        <button onClick={handleShowAll} className={s.searchButton}>
+          Mostrar todos
+        </button>
       </form>
     </div>
   );
