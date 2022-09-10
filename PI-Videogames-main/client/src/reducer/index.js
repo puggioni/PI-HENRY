@@ -76,7 +76,7 @@ function rootReducer(state = initialState, action) {
       }
     case "FILTER_BY_GENRE":
       if (action.payload === "Todos") {
-        return { ...state, filtered: state.videogames };
+        return { ...state, filtered: state.backup };
       } else {
         return {
           ...state,
@@ -87,7 +87,23 @@ function rootReducer(state = initialState, action) {
           }),
         };
       }
-
+    case "FILTER_BY_CREATED":
+      if (action.payload === "Todos") {
+        return { ...state, filtered: state.backup };
+      }
+      if (action.payload === "DB") {
+        return {
+          ...state,
+          filtered: state.backup.filter((game) => typeof game.id === "string"),
+        };
+      }
+      if (action.payload === "API") {
+        return {
+          ...state,
+          filtered: state.backup.filter((game) => typeof game.id === "number"),
+        };
+      }
+      break;
     default:
       return state;
   }

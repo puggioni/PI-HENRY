@@ -1,7 +1,12 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterByGenre, getGenres, orderBy } from "../../actions";
+import {
+  filterByCreated,
+  filterByGenre,
+  getGenres,
+  orderBy,
+} from "../../actions";
 import Searchbar from "../SearchBar/SearchBar";
 import s from "./filters.module.css";
 
@@ -13,7 +18,9 @@ const Filters = () => {
   const handleSelect2 = (e) => {
     dispatch(orderBy(e.target.value));
   };
-
+  const handleSelectr3 = (e) => {
+    dispatch(filterByCreated(e.target.value));
+  };
   useEffect(() => {
     dispatch(getGenres());
   }, [dispatch]);
@@ -24,6 +31,9 @@ const Filters = () => {
       <Searchbar />
       <div className={s.selectorContainer}>
         <select className={s.filterSelector} onChange={handleSelect}>
+          <option className={s.filterOption} value="Todos">
+            Todos los generos...
+          </option>
           <optgroup className={s.filterOptionGroup} label="Generos">
             {genres &&
               genres.map((g) => {
@@ -43,7 +53,7 @@ const Filters = () => {
           id=""
         >
           <option className={s.filterOption} value="default">
-            ORDEN...
+            Orden...
           </option>
           <optgroup className={s.filterOptionGroup} label="Rating">
             <option className={s.filterOption} value="asc">
@@ -61,6 +71,22 @@ const Filters = () => {
               Z - A
             </option>
           </optgroup>
+        </select>
+        <select
+          className={s.filterSelector}
+          onChange={handleSelectr3}
+          name=""
+          id=""
+        >
+          <option className={s.filterOption} value="Todos">
+            Todos
+          </option>
+          <option className={s.filterOption} value="API">
+            API
+          </option>
+          <option className={s.filterOption} value="DB">
+            DB
+          </option>
         </select>
       </div>
     </div>

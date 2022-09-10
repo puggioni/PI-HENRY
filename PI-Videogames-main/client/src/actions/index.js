@@ -5,6 +5,7 @@ import {
   GET_VIDEOGAMES,
   FILTER_BY_GENRE,
   ORDER_BY,
+  FILTER_BY_CREATED,
 } from "./const";
 
 export function getVideogames() {
@@ -43,5 +44,11 @@ export function orderBy(order) {
 export function filterByGenre(genre) {
   return function (dispatch) {
     dispatch({ type: FILTER_BY_GENRE, payload: genre });
+  };
+}
+
+export function filterByCreated(created) {
+  return function (dispatch) {
+    dispatch({ type: FILTER_BY_CREATED, payload: created });
   };
 }
