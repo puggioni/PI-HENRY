@@ -5,7 +5,7 @@ const Landing = () => {
   return (
     <div className={s.landingContainer}>
       <h1>Welcome</h1>
-      <Link to="/home">
+      <Link to="/videogames">
         <button>Home</button>
       </Link>
     </div>

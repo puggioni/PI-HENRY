@@ -29,7 +29,6 @@ function rootReducer(state = initialState, action) {
     case "SEARCH_BY_NAME":
       return {
         ...state,
-        backup: state.videogames,
         filtered: action.payload,
       };
     case "ORDER_BY":

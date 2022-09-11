@@ -6,6 +6,7 @@ import {
   FILTER_BY_GENRE,
   ORDER_BY,
   FILTER_BY_CREATED,
+  SEARCH_BY_NAME,
 } from "./const";
 
 export function getVideogames() {
@@ -22,10 +23,14 @@ export function getDetails() {
 }
 export function searchByName(name) {
   return async function (dispatch) {
-    const response = await axios.get(
-      `http://localhost:3001/videogames?name=${name}`
-    );
-    dispatch({ type: GET_VIDEOGAMES, payload: response.data });
+    try {
+      const response = await axios.get(
+        `http://localhost:3001/videogames?name=${name}`
+      );
+      dispatch({ type: SEARCH_BY_NAME, payload: response.data });
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
 

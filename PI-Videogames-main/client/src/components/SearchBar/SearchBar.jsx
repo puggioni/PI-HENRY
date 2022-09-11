@@ -1,49 +1,47 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { searchByName, getVideogames } from "../../actions/index";
+import { getVideogames, searchByName } from "../../actions/index";
 import s from "./searchBar.module.css";
+
 const Searchbar = () => {
-  const [input, setInput] = useState({
-    buscar: "",
-  });
+  const [name, setname] = useState("");
   const dispatch = useDispatch();
 
   const handleSearch = (e) => {
-    dispatch(searchByName(input.buscar));
-    setInput({
-      buscar: "",
-    });
+    e.preventDefault();
+    dispatch(searchByName(name));
+    console.log(name);
   };
 
-  const handleInput = (e) => {
-    setInput({
-      [e.target.name]: e.target.value,
-    });
+  const handlename = (e) => {
+    e.preventDefault();
+    setname(e.target.value);
+    console.log(e.target.value);
   };
-
-  const handleShowAll = (e) => {
+  const showAll = (e) => {
+    e.preventDefault();
     dispatch(getVideogames());
-    setInput({
-      buscar: "",
-    });
   };
-
   return (
     <div className={s.searchBarContainer}>
-      <form onSubmit={handleSearch}>
+      <form>
         <input
-          name="buscar"
+          name="name"
           placeholder="Buscar Juego..."
-          onChange={handleInput}
-          value={input.buscar}
+          onChange={(e) => handlename(e)}
+          value={name}
           autoComplete="off"
         />
-        <button type="submit" className={s.searchButton}>
+        <button
+          type="submit"
+          className={s.searchButton}
+          onClick={(e) => handleSearch(e)}
+        >
           Buscar
         </button>
-        <button onClick={handleShowAll} className={s.searchButton}>
-          Mostrar todos
+        <button className={s.searchButton} onClick={(e) => showAll(e)}>
+          Mostrar Todos
         </button>
       </form>
     </div>
