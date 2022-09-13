@@ -40,8 +40,10 @@ const getVideogameById = async (req, res) => {
       description: game.description_raw,
       released: game.released,
       rating: game.rating,
-      platforms: game.platforms.map((platform) => platform.platform.name),
-      genres: game.genres.map((genre) => genre.name),
+      platforms: game.platforms
+        .map((platform) => platform.platform.name)
+        .join(", "),
+      genres: game.genres.map((genre) => genre.name).join(", "),
       background_image: game.background_image,
     };
     res.send(videogame);
