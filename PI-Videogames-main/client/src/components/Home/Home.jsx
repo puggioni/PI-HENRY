@@ -9,6 +9,7 @@ import { useState } from "react";
 import Pagination from "../Pagination/Pagination";
 import Filters from "../Filters/Filters";
 import VgCard from "../vgCard/vgCard";
+import Nav from "../Nav/Nav";
 function Home() {
   const dispatch = useDispatch();
   const videogames = useSelector((state) => state.filtered);
@@ -27,17 +28,9 @@ function Home() {
   const maximumPages = Math.ceil(videogames.length / videogamesPerPage);
   return (
     <div className={s.homeContainer}>
-      <nav className={s.navHome}>
-        <h1 className={s.homeTittle}> Henry Games</h1>
-        <div className={s.homeButton}>
-          <Link to="/videogame" className={s.linkHome}>
-            Crear videojuego
-          </Link>
-        </div>
-      </nav>
-      <div className={s.homeFiltersContainer}>
-        <Filters />
-      </div>
+      <Nav />
+
+      <Filters />
       <Pagination
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}

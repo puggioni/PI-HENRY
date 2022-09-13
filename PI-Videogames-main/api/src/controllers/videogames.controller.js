@@ -1,6 +1,7 @@
 const { Videogame, Genre } = require("../db");
 const { getAllVideogames } = require("./index.controllers");
-
+const axios = require("axios");
+const { API_KEY } = process.env;
 const getVideogames = async (req, res) => {
   const { name } = req.query;
   const videogamesTotal = await getAllVideogames();
@@ -23,13 +24,27 @@ const getVideogames = async (req, res) => {
 const getVideogameById = async (req, res) => {
   const { id } = req.params;
   const videogamesTotal = await getAllVideogames();
-  try {
-    const videogame = videogamesTotal.find((videogame) => videogame.id == id);
+  if (id.includes("-")) {
+    const videogame = videogamesTotal.find((game) => game.id === id);
     videogame
       ? res.send(videogame)
       : res.status(404).send("No se encontró ningún juego con ese id");
-  } catch (error) {
-    res.send({ error: error.message });
+  } else {
+    const response = await axios.get(
+      `https://api.rawg.io/api/games/${id}?key=${API_KEY}`
+    );
+    const game = response.data;
+    const videogame = {
+      id: game.id,
+      name: game.name,
+      description: game.description_raw,
+      released: game.released,
+      rating: game.rating,
+      platforms: game.platforms.map((platform) => platform.platform.name),
+      genres: game.genres.map((genre) => genre.name),
+      background_image: game.background_image,
+    };
+    res.send(videogame);
   }
 };
 

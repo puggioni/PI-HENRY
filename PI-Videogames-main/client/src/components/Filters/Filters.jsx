@@ -34,16 +34,15 @@ const Filters = () => {
           <option className={s.filterOption} value="Todos">
             Todos los generos...
           </option>
-          <optgroup className={s.filterOptionGroup} label="Generos">
-            {genres &&
-              genres.map((g) => {
-                return (
-                  <option key={g.id} value={g.name} className={s.filterOption}>
-                    {g.name}
-                  </option>
-                );
-              })}
-          </optgroup>
+
+          {genres &&
+            genres.map((g) => {
+              return (
+                <option key={g.id} value={g.name} className={s.filterOption}>
+                  {g.name}
+                </option>
+              );
+            })}
         </select>
 
         <select

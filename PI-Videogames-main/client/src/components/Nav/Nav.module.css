@@ -1,0 +1,31 @@
+.homeTittle {
+  font-size: 50px;
+  color: #17d6dd;
+}
+.homeButton {
+  background-color: rgba(255, 255, 255, 0.329);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+.homeButton:hover {
+  background-color: rgba(255, 255, 255, 0.767);
+  text-decoration: none;
+  color: black;
+}
+.linkHome {
+  text-decoration: none;
+  color: #17d6dd;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.navHome {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  height: 10vh;
+  background-color: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+}
