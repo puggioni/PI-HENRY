@@ -1,6 +1,7 @@
 const initialState = {
   videogames: [],
   genres: [],
+  platforms: [],
   filtered: [],
   backup: [],
   details: {},
@@ -15,6 +16,10 @@ function rootReducer(state = initialState, action) {
         backup: action.payload,
         filtered: action.payload,
       };
+    case "CREATE_VIDEOGAME":
+      return {
+        ...state,
+      };
     case "GET_DETAILS":
       return {
         ...state,
@@ -25,7 +30,11 @@ function rootReducer(state = initialState, action) {
         ...state,
         genres: action.payload,
       };
-
+    case "GET_PLATFORMS":
+      return {
+        ...state,
+        platforms: action.payload,
+      };
     case "SEARCH_BY_NAME":
       return {
         ...state,
@@ -102,6 +111,7 @@ function rootReducer(state = initialState, action) {
           filtered: state.backup.filter((game) => typeof game.id === "number"),
         };
       }
+
       break;
     default:
       return state;

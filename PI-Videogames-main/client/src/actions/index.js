@@ -7,6 +7,7 @@ import {
   ORDER_BY,
   FILTER_BY_CREATED,
   SEARCH_BY_NAME,
+  GET_PLATFORMS,
 } from "./const";
 
 export function getVideogames() {
@@ -55,5 +56,20 @@ export function filterByGenre(genre) {
 export function filterByCreated(created) {
   return function(dispatch) {
     dispatch({ type: FILTER_BY_CREATED, payload: created });
+  };
+}
+export function createVideogame(payload) {
+  return async function(dispatch) {
+    const response = await axios.post(
+      "http://localhost:3001/videogames",
+      payload
+    );
+  };
+}
+
+export function getPlatforms() {
+  return async function(dispatch) {
+    const response = await axios.get("http://localhost:3001/platforms");
+    dispatch({ type: GET_PLATFORMS, payload: response.data });
   };
 }

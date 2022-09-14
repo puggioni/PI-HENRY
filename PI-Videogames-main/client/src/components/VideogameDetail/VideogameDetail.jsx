@@ -23,18 +23,25 @@ const VideogameDetail = () => {
         </div>
         <div className={s.textContainer}>
           <h1>{videogame.name}</h1>
-          <div>
-            <h3>Genres :</h3>
-            <p>{`${videogame.genres}`}</p>
+          <div className={s.dataContainer}>
+            <h3>Genres : </h3>
+            <p>{` ${videogame.genres}`}</p>
           </div>
-          <div>
-            <h3>Platforms:</h3>
-            <p>{`${videogame.platforms}`}</p>
+          <div className={s.dataContainer}>
+            <h3>Platforms : </h3>
+            <p>{` ${videogame.platforms}`}</p>
           </div>
-          <h3>Rating: {videogame.rating}</h3>
-          <h3>Released: {videogame.released}</h3>
-          <h3>Description:</h3>
-          <p>{videogame.description}</p>
+          <div className={s.dataContainer}>
+            <h3>Rating : </h3>
+            <p>{videogame.rating}</p>
+          </div>
+          <div className={s.dataContainer}>
+            <h3>Released :</h3>
+            <p>{videogame.released}</p>
+          </div>
+          <div className={s.dataContainer}>
+            <p>{videogame.description}</p>
+          </div>
         </div>
       </div>
     </div>

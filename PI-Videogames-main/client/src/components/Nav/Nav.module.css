@@ -8,6 +8,10 @@
   border-radius: 5px;
   padding: 10px 20px;
 }
+.link {
+  text-decoration: none;
+  align-items: center;
+}
 .homeButton:hover {
   background-color: rgba(255, 255, 255, 0.767);
   text-decoration: none;
