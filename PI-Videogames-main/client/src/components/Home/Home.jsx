@@ -16,7 +16,8 @@ function Home() {
 
   useEffect(() => {
     dispatch(getVideogames());
-  }, [dispatch]);
+  }, []);
+
   const [currentPage, setCurrentPage] = useState(1);
   const [videogamesPerPage, setVideogamesPerPage] = useState(15);
   const indexOfLastVideogame = currentPage * videogamesPerPage;

@@ -3,7 +3,6 @@ const initialState = {
   genres: [],
   platforms: [],
   filtered: [],
-  backup: [],
   details: {},
 };
 
@@ -13,7 +12,6 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         videogames: action.payload,
-        backup: action.payload,
         filtered: action.payload,
       };
     case "CREATE_VIDEOGAME":
@@ -80,35 +78,36 @@ function rootReducer(state = initialState, action) {
           ),
         };
       } else {
-        return { ...state, filtered: state.backup };
+        return { ...state, filtered: state.videogames };
       }
     case "FILTER_BY_GENRE":
-      if (action.payload === "Todos") {
-        return { ...state, filtered: state.backup };
-      } else {
-        return {
-          ...state,
-          filtered: state.backup.filter((game) => {
-            return game.genres.find((genre) => {
-              return genre === action.payload;
-            });
-          }),
-        };
-      }
+      const allVg = state.videogames;
+      const allVgFiltered =
+        action.payload === "Todos"
+          ? allVg
+          : allVg.filter((vg) => vg.genres.includes(action.payload));
+      return {
+        ...state,
+        filtered: allVgFiltered,
+      };
     case "FILTER_BY_CREATED":
       if (action.payload === "Todos") {
-        return { ...state, filtered: state.backup };
+        return { ...state, filtered: state.videogames };
       }
       if (action.payload === "DB") {
         return {
           ...state,
-          filtered: state.backup.filter((game) => typeof game.id === "string"),
+          filtered: state.videogames.filter(
+            (game) => typeof game.id === "string"
+          ),
         };
       }
       if (action.payload === "API") {
         return {
           ...state,
-          filtered: state.backup.filter((game) => typeof game.id === "number"),
+          filtered: state.videogames.filter(
+            (game) => typeof game.id === "number"
+          ),
         };
       }
 
