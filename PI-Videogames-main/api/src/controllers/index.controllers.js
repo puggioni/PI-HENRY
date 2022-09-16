@@ -4,28 +4,40 @@ const { API_KEY } = process.env;
 
 const getApiInfo = async () => {
   try {
-    const response1 = await axios
-      .get(`https://api.rawg.io/api/games?key=${API_KEY}&page_size=40&page=1`)
+    const response1 = axios
+      .get(`https://api.rawg.io/api/games?key=${API_KEY}&page_size=20&page=1`)
       .then((res) => res.data.results);
-    const response2 = await axios
+    const response2 = axios
       .get(`https://api.rawg.io/api/games?key=${API_KEY}&page_size=40&page=2`)
       .then((res) => res.data.results);
-    const response3 = await axios
-      .get(`https://api.rawg.io/api/games?key=${API_KEY}&page_size=20&page=3`)
+    const response3 = axios
+      .get(`https://api.rawg.io/api/games?key=${API_KEY}&page_size=40&page=3`)
       .then((res) => res.data.results);
-    const response = response1.concat(response2, response3);
-    const apiInfo = response.map((game) => {
+    const apiInfo = await Promise.all([response1, response2, response3]);
+    const videogames = apiInfo.flat().map((game) => {
       return {
         id: game.id,
         name: game.name,
+        description: game.description_raw,
         released: game.released,
         rating: game.rating,
-        platforms: game.platforms.map((platform) => platform.platform.name),
-        genres: game.genres.map((genre) => genre.name),
+        platforms: game.platforms
+          .map((platform) => platform.platform.name)
+          .join(", "),
+        genres: game.genres.map((genre) => genre.name).join(", "),
         background_image: game.background_image,
       };
     });
-    return apiInfo;
+    const obj = new Set();
+    const uniqueGames = videogames.reduce((acc, videogame) => {
+      if (!obj.has(videogame.id)) {
+        obj.add(videogame.id);
+        acc.push(videogame);
+      }
+      return acc;
+    }, []);
+    console.log(uniqueGames.length);
+    return uniqueGames;
   } catch (error) {
     return error.message;
   }

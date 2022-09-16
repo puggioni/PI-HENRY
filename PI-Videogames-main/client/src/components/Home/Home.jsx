@@ -13,10 +13,10 @@ import Nav from "../Nav/Nav";
 function Home() {
   const dispatch = useDispatch();
   const videogames = useSelector((state) => state.filtered);
-
+  console.log(videogames);
   useEffect(() => {
     dispatch(getVideogames());
-  }, []);
+  }, [dispatch]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [videogamesPerPage, setVideogamesPerPage] = useState(15);
@@ -27,6 +27,8 @@ function Home() {
     indexOfLastVideogame
   );
   const maximumPages = Math.ceil(videogames.length / videogamesPerPage);
+
+  console.log(videogames);
   return (
     <div className={s.homeContainer}>
       <Nav />
@@ -48,7 +50,6 @@ function Home() {
               rating={g.rating}
               genres={g.genres}
               image={g.background_image}
-              id={g.id}
             />
           ))}
       </div>
