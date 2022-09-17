@@ -54,22 +54,20 @@ const Filters = () => {
           <option className={s.filterOption} value="default">
             Orden...
           </option>
-          <optgroup className={s.filterOptionGroup} label="Rating">
-            <option className={s.filterOption} value="asc">
-              Mayor a Menor
-            </option>
-            <option className={s.filterOption} value="desc">
-              Menor a Mayor
-            </option>
-          </optgroup>
-          <optgroup className={s.filterOptionGroup} label="Alphabetic">
-            <option className={s.filterOption} value="A-Z">
-              A - Z
-            </option>
-            <option className={s.filterOption} value="Z-A">
-              Z - A
-            </option>
-          </optgroup>
+
+          <option className={s.filterOption} value="asc">
+            Mayor a Menor
+          </option>
+          <option className={s.filterOption} value="desc">
+            Menor a Mayor
+          </option>
+
+          <option className={s.filterOption} value="A-Z">
+            A - Z
+          </option>
+          <option className={s.filterOption} value="Z-A">
+            Z - A
+          </option>
         </select>
         <select
           className={s.filterSelector}

@@ -24,6 +24,7 @@ const getVideogames = async (req, res) => {
 const getVideogameById = async (req, res) => {
   const { id } = req.params;
   const videogamesTotal = await getAllVideogames();
+  console.log(videogamesTotal);
   if (id.includes("-")) {
     const videogame = videogamesTotal.find((game) => game.id === id);
     videogame

@@ -8,33 +8,23 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(9px);
   -webkit-backdrop-filter: blur(9px);
-  width: 250px;
+  width: fit-content;
   height: 80px;
 }
-.paginationContainer input {
-  width: 30px;
-  height: 30px;
-  border-radius: 8px;
-  margin-right: 10px;
+.paginationContainer li {
+  list-style: none;
+}
+.paginationContainer button {
+  margin: 0 5px;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.452);
   border: none;
-  background: rgba(255, 255, 255, 0.329);
+  border-radius: 5px;
   color: aqua;
-  font-size: 20px;
-  text-align: center;
 }
-.paginationContainer p {
-  margin: 0 10px;
-  color: aqua;
-  font-size: 20px;
-}
-.button {
-  margin: 0px 20px;
-  background: none;
-  border: none;
-  color: aqua;
-  font-size: 20px;
-}
-.button:hover {
-  background: #8f6838;
-  text-decoration: none;
+
+.paginationContainer button:hover {
+  transform: translateY(2px);
+  transition: 0.3s;
+  background-color: rgba(255, 255, 255, 0.692);
 }

@@ -6,7 +6,7 @@
 }
 .homeContainer {
   align-items: center;
-  background: url("../../assets/background-image.jpg") center no-repeat;
+  background: url("../../assets/background-image.jpg");
 
   background-size: cover;
 

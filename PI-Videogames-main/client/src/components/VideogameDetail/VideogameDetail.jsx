@@ -13,7 +13,7 @@ const VideogameDetail = () => {
   useEffect(() => {
     dispatch(getDetails(id));
   }, [dispatch]);
-
+  console.log(videogame);
   return (
     <div className={s.container}>
       <Nav />

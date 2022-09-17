@@ -1,32 +1,21 @@
 import React from "react";
-import { useState } from "react";
-import s from "./pagination.module.css";
-/* import { VscChevronLeft, VscChevronRight } from "react-icons/vsc"; */
 
-const Pagination = ({ currentPage, setCurrentPage, maximumPages }) => {
-  const [input, setInput] = useState(1);
-  const nextPage = () => {
-    setInput(input + 1);
-    setCurrentPage(currentPage + 1);
-  };
-  const prevPage = () => {
-    setInput(input - 1);
-    setCurrentPage(currentPage - 1);
-  };
-  const handleInput = (e) => {
-    setInput(e.target.value);
-    setCurrentPage(e.target.value);
-  };
+import s from "./pagination.module.css";
+
+const Pagination = ({ videogamesPerPage, totalVideogames, paginate }) => {
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(totalVideogames / videogamesPerPage); i++) {
+    pageNumbers.push(i);
+  }
   return (
-    <div className={s.paginationContainer}>
-      <button onClick={prevPage} className={s.button}>
-        {/*  <VscChevronLeft /> */}
-      </button>
-      <input type="number" value={input} onChange={handleInput}></input>
-      <p>de: {maximumPages}</p>
-      <button onClick={nextPage} className={s.button}>
-        {/* <VscChevronRight /> */}
-      </button>
+    <div>
+      <ul className={s.paginationContainer}>
+        {pageNumbers.map((number) => (
+          <li key={number}>
+            <button onClick={() => paginate(number)}>{number}</button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

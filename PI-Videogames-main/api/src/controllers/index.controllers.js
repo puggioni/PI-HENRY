@@ -28,16 +28,8 @@ const getApiInfo = async () => {
         background_image: game.background_image,
       };
     });
-    const obj = new Set();
-    const uniqueGames = videogames.reduce((acc, videogame) => {
-      if (!obj.has(videogame.id)) {
-        obj.add(videogame.id);
-        acc.push(videogame);
-      }
-      return acc;
-    }, []);
-    console.log(uniqueGames.length);
-    return uniqueGames;
+
+    return videogames;
   } catch (error) {
     return error.message;
   }
