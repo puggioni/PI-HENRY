@@ -32,7 +32,7 @@ const Filters = () => {
       <div className={s.selectorContainer}>
         <select className={s.filterSelector} onChange={handleSelect}>
           <option className={s.filterOption} value="Todos">
-            Todos los generos...
+            Generos
           </option>
 
           {genres &&
@@ -52,7 +52,7 @@ const Filters = () => {
           id=""
         >
           <option className={s.filterOption} value="default">
-            Orden...
+            Orden
           </option>
 
           <option className={s.filterOption} value="asc">
@@ -76,7 +76,7 @@ const Filters = () => {
           id=""
         >
           <option className={s.filterOption} value="Todos">
-            Todos
+            Origen
           </option>
           <option className={s.filterOption} value="API">
             API

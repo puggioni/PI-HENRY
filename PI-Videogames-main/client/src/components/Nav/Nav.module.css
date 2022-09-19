@@ -1,35 +1,76 @@
-.homeTittle {
-  font-size: 50px;
-  color: #17d6dd;
+@import url("https://fonts.googleapis.com/css2?family=Fascinate&display=swap");
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  padding-top: 3vh;
+  background-color: rgba(255, 255, 255, 0.14);
+}
+.tittleContainer {
+  margin-left: 30px;
+}
+.container h1 {
+  text-align: center;
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+}
+.container span {
+  display: inline-block;
+  font-family: "Fascinate";
+  font-size: 2vw;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #bababa;
+}
+.container span:nth-child(1) {
+  color: #bababa;
+}
+.container span:nth-child(1)::after {
+  content: "";
+  background: #bababa;
+  position: relative;
+  top: -0.1em;
+  width: 10vw;
+  height: 1em;
+  display: block;
+  border-radius: 5px;
+}
+.container span:nth-child(3) {
+  color: #444444;
+  letter-spacing: 0.18em;
+  position: relative;
+  top: -1.15em;
+  z-index: 2;
+  text-shadow: 1px 1px 1px rgb(177, 177, 177), 0.2em 0.15em 0 rgb(0, 0, 0);
 }
 .homeButton {
-  background-color: rgba(255, 255, 255, 0.329);
+  background-color: #2c2c2c;
   border: none;
-  border-radius: 5px;
+  border-radius: 40px;
   padding: 10px 20px;
+  margin-right: 30px;
+  margin-bottom: 20px;
 }
 .link {
   text-decoration: none;
   align-items: center;
 }
 .homeButton:hover {
-  background-color: rgba(255, 255, 255, 0.767);
+  background-color: #bababa;
   text-decoration: none;
-  color: black;
+  color: #2c2c2c;
+  transition: 0.5s;
+  border: #2c2c2c 5px solid;
 }
 .linkHome {
   text-decoration: none;
-  color: #17d6dd;
+  color: #bababa;
   font-size: 1.5rem;
   font-weight: 600;
 }
-.navHome {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 5%;
-  height: 10vh;
-  background-color: rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(9px);
-  -webkit-backdrop-filter: blur(9px);
+.linkHome:hover {
+  color: #2c2c2c;
+  transition: 0.5s;
 }

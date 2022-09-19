@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Fascinate&display=swap");
 .searchBarContainer {
   margin-right: 20px;
 }
@@ -9,33 +10,40 @@
   margin: 10px auto 10px auto;
   width: fit-content;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(9px);
-  -webkit-backdrop-filter: blur(9px);
+  background-color: #bababa;
   color: white;
-  font-family: "Roboto", sans-serif;
   font-size: 1.5rem;
+  font-family: "Fascinate";
   font-weight: 500;
   padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 40px;
 }
 .searchBarContainer input {
   margin: 0px 10px;
   background: none;
   border: none;
-  color: aqua;
+  color: #2c2c2c;
   font-size: 20px;
+  font-family: "Fascinate";
 }
 .searchBarContainer input::placeholder {
-  color: aqua;
+  color: #2c2c2c;
+  font-family: "Fascinate";
 }
 .searchButton {
   margin: 0px 20px;
   padding: 10px 10px;
-  background: rgba(255, 255, 255, 0.329);
+  background: #2c2c2c;
   border: none;
-  border-radius: 8px;
-  color: aquamarine;
+  border-radius: 40px;
+  color: #bababa;
   font-size: 20px;
+  font-family: "Fascinate";
+  cursor: pointer;
+}
+.searchButton:hover {
+  background: #bababa;
+  color: #2c2c2c;
+  border: #2c2c2c 1px solid;
+  transition: 0.4s ease all;
 }

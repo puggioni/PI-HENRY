@@ -1,15 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Fascinate&display=swap");
 .filterContainer {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 50px auto 50px auto;
-  width: 70%;
+  width: 80%;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(9px);
-  -webkit-backdrop-filter: blur(9px);
-  color: white;
-  font-family: "Roboto", sans-serif;
   font-size: 1.5rem;
   font-weight: 500;
   padding: 1rem;
@@ -24,24 +21,29 @@
   margin: 0px 20px;
   background: none;
   border: none;
-  color: aqua;
   font-size: 20px;
 }
 
 .filterSelector {
   margin: 0px 20px;
-  background: rgba(255, 255, 255, 0.329);
+  background: #2c2c2c;
   height: 75px;
+  width: 200px;
+  text-align: center;
   border: none;
-  border-radius: 8px;
-  color: aqua;
+  border-radius: 40px;
+  color: #bababa;
   font-size: 20px;
+  cursor: pointer;
+  font-family: "Fascinate";
+}
+.filterSelector:hover {
+  background-color: #bababa;
+  color: #2c2c2c;
+  transition: 0.5s;
+  border: #2c2c2c 5px solid;
 }
 
-.filterSelector optgroup {
-  background-color: darkgray;
-  color: white;
-}
 .filterSelector option {
   background: grey;
   color: white;

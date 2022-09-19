@@ -6,10 +6,8 @@
 }
 .homeContainer {
   align-items: center;
-  background: url("../../assets/background-image.jpg");
-
+  background: #2c2c2c;
   background-size: cover;
-
   height: auto;
 }
 

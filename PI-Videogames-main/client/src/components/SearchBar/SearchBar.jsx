@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { getVideogames, searchByName } from "../../actions/index";
 import s from "./searchBar.module.css";
-
+import { AiOutlineSearch } from "react-icons/ai";
 const Searchbar = () => {
   const [name, setname] = useState("");
   const dispatch = useDispatch();
@@ -38,7 +38,7 @@ const Searchbar = () => {
           className={s.searchButton}
           onClick={(e) => handleSearch(e)}
         >
-          Buscar
+          <AiOutlineSearch />
         </button>
         <button className={s.searchButton} onClick={(e) => showAll(e)}>
           Mostrar Todos

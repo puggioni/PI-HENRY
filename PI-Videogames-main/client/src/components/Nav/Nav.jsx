@@ -1,11 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import s from "./Nav.module.css";
+import SearchBar from "../SearchBar/SearchBar.jsx";
 const Nav = () => {
   return (
-    <div className={s.navHome}>
+    <div className={s.container}>
       <Link to="/videogames" className={s.link}>
-        <h1 className={s.homeTittle}> Henry Games</h1>
+        <div className={s.tittleContainer}>
+          {" "}
+          <h1>
+            <span>Henry</span>
+            <br />
+            <span>Games</span>
+          </h1>
+        </div>
       </Link>
       <div className={s.homeButton}>
         <Link to="/videogame" className={s.linkHome}>
