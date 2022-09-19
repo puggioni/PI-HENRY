@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getVideogames } from "../../actions";
 import s from "./home.module.css";
-
+import notFound from "../../assets/images/404.png";
 import { useState } from "react";
 import Pagination from "../Pagination/Pagination";
 import Filters from "../Filters/Filters";
@@ -39,7 +39,7 @@ function Home() {
       ></Pagination>
 
       <div className={s.vgContainer}>
-        {currentVideogames.length &&
+        {currentVideogames.length > 0 ? (
           currentVideogames.map((g) => (
             <VgCard
               key={g.id}
@@ -49,7 +49,12 @@ function Home() {
               image={g.background_image}
               id={g.id}
             />
-          ))}
+          ))
+        ) : (
+          <div>
+            <img className={s.notFound} src={notFound} alt="notFoundImg"></img>
+          </div>
+        )}
       </div>
     </div>
   );
