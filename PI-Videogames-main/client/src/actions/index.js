@@ -8,6 +8,8 @@ import {
   FILTER_BY_CREATED,
   SEARCH_BY_NAME,
   GET_PLATFORMS,
+  SHOW_LOADING,
+  HIDE_LOADING,
 } from "./const";
 
 export function getVideogames() {

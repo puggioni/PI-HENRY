@@ -14,10 +14,10 @@
 .paginationContainer button {
   margin: 0 5px;
   padding: 5px;
-  background-color: #bababa;
+  background-color: #984b9c;
   border: none;
   border-radius: 5px;
-  color: #2c2c2c;
+  color: #0bd2d3;
   font-size: 30px;
   font-family: "Fascinate";
   width: 40px;
@@ -25,9 +25,9 @@
 }
 
 .paginationContainer button:hover {
-  transform: translateY(2px);
-  transition: 0.3s;
-  background-color: #2c2c2c;
-  color: #bababa;
-  border: #bababa 1px solid;
+  transform: translateY(5px);
+  transition: 0.5s;
+  background-color: #0bd2d3;
+  color: #984b9c;
+  border: #984b9c 2px solid;
 }

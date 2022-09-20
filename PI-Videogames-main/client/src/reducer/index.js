@@ -4,6 +4,7 @@ const initialState = {
   platforms: [],
   filtered: [],
   details: {},
+  loading: false,
 };
 
 function rootReducer(state = initialState, action) {
@@ -111,7 +112,6 @@ function rootReducer(state = initialState, action) {
         };
       }
 
-      break;
     default:
       return state;
   }

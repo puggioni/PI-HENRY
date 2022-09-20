@@ -1,62 +1,99 @@
-* {
-  font-family: Arial, Helvetica, sans-serif;
-}
-.cardContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px;
-  padding: 20px;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(9px);
-  width: 300px;
+@import url("https://fonts.googleapis.com/css2?family=Wire+One&display=swap");
+.outSideBorder {
+  margin: 10px;
+  padding: 5px;
+  height: 400px;
+  width: 250px;
+  border-top: 3px solid #0bd2d3;
+  border-left: 3px solid #0bd2d3;
+  border-right: 3px solid #0bd2d3;
+  border-bottom: 3px solid #0bd2d3;
+  box-shadow: #0bd2d3 0px 0px 30px 0px;
 }
 .link {
+  cursor: pointer;
   text-decoration: none;
-  align-items: center;
 }
-.titleGame {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-  font-size: 20px;
-  font-weight: 600;
-  color: aqua;
-  text-align: center;
+.container {
+  height: 400px;
+  width: 250px;
+  border: #f990e8 2px solid;
 }
-.gameImage {
-  display: flex;
-  margin: 10px;
+.container:hover {
+  transition: 0.5s;
+  border: gold 2px solid;
+  box-shadow: gold 0px 0px 30px 0px;
+}
+.imgage {
+  display: block;
   overflow: hidden;
   width: 200px;
-  height: 200px;
 }
 
-.gameImage img {
-  object-fit: cover;
+.image img {
   width: 100%;
-  min-height: 100%;
-  border-radius: 10px;
+  height: 260px;
+  object-fit: cover;
 }
 
-.rating {
-  display: flex;
-  justify-content: center;
-  height: 35px;
+.bottomSide {
+  background-color: #2a1039;
+  height: 136px;
+  margin-top: -4px;
 }
-.rating p {
-  margin: 0;
-  padding: 0;
-  font-size: 15px;
-  font-weight: 600;
-  color: aqua;
+
+.tittle {
+  background-color: #2a1039;
+}
+
+.tittle h4 {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Wire One", sans-serif;
+  letter-spacing: 1px;
+  padding-top: 5px;
 }
 
 .genres p {
-  margin: 0;
-  padding: 0;
-  font-size: 15px;
-  font-weight: 600;
-  color: aqua;
+  font-size: 20px;
+  font-weight: 900;
+  text-align: center;
+  font-family: "Wire One", sans-serif;
+  letter-spacing: 1px;
+  color: #0bd2d3;
+}
+.rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.icon {
+  font-size: 50px;
+  color: rgb(255, 153, 0);
+}
+.rating p {
+  color: #0bd2d3;
+  font-family: "Wire One", sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.info {
+  color: #f990e8;
+  text-decoration: none;
+  font-size: 35px;
+  z-index: 10;
+  position: absolute;
+  margin-bottom: 45px;
+  margin-top: -10px;
+}
+
+.info:hover {
+  color: #0bd2d3;
+  transform: rotateY(180deg);
+  transition: 0.5s;
 }

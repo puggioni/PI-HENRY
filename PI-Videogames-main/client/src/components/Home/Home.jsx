@@ -9,10 +9,10 @@ import Pagination from "../Pagination/Pagination";
 import Filters from "../Filters/Filters";
 import VgCard from "../vgCard/vgCard";
 import Nav from "../Nav/Nav";
+
 function Home() {
   const dispatch = useDispatch();
   const videogames = useSelector((state) => state.filtered);
-  console.log(videogames);
   useEffect(() => {
     dispatch(getVideogames());
   }, [dispatch]);
@@ -25,21 +25,19 @@ function Home() {
     indexOfFirstVideogame,
     indexOfLastVideogame
   );
-  console.log(currentVideogames);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <div className={s.homeContainer}>
       <Nav />
-
       <Filters />
       <Pagination
         totalVideogames={videogames.length}
         videogamesPerPage={videogamesPerPage}
         paginate={paginate}
       ></Pagination>
-
       <div className={s.vgContainer}>
-        {currentVideogames.length > 0 ? (
+        {currentVideogames.length > 1 ? (
           currentVideogames.map((g) => (
             <VgCard
               key={g.id}

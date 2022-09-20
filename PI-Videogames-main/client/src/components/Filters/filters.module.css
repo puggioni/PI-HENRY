@@ -6,7 +6,7 @@
   margin: 50px auto 50px auto;
   width: 80%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.14);
+  background-color: #984b9c9d;
   font-size: 1.5rem;
   font-weight: 500;
   padding: 1rem;
@@ -26,25 +26,25 @@
 
 .filterSelector {
   margin: 0px 20px;
-  background: #2c2c2c;
+  background: #0bd2d3;
   height: 75px;
   width: 200px;
   text-align: center;
   border: none;
   border-radius: 40px;
-  color: #bababa;
+  color: #2c2c2c;
   font-size: 20px;
   cursor: pointer;
   font-family: "Fascinate";
 }
 .filterSelector:hover {
-  background-color: #bababa;
-  color: #2c2c2c;
+  background-color: #2c2c2c;
+  color: #f990e8;
   transition: 0.5s;
-  border: #2c2c2c 5px solid;
+  border: #0bd2d3 5px solid;
 }
 
 .filterSelector option {
-  background: grey;
-  color: white;
+  background: #984b9c9d;
+  color: #0bd2d3;
 }
