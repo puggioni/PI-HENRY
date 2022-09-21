@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Wire+One&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -6,19 +7,29 @@
 }
 .container {
   align-items: center;
-  background: url("../../assets/background-image.jpg") center no-repeat;
+  background: url("../../assets/images/background-img.jpg") center no-repeat;
   background-size: cover;
   height: 100vh;
+}
+.outsideBorder {
+  margin: 70px;
+  padding: 5px;
+  height: 70vh;
+  width: 80vw;
+  border-top: 3px solid #0bd2d3;
+  border-left: 3px solid #0bd2d3;
+  border-right: 3px solid #0bd2d3;
+  border-bottom: 3px solid #0bd2d3;
+  box-shadow: #0bd2d3 0px 0px 30px 0px;
 }
 
 .infoContainer {
   height: 70vh;
   width: 80vw;
   display: flex;
-  background-color: rgba(255, 255, 255, 0.14);
+  background-color: #984b9cd8;
   backdrop-filter: blur(9px);
-  margin: 50px auto;
-  border-radius: 10px;
+  border: #f990e8 2px solid;
 }
 .imgContainer {
   display: flex;
@@ -30,7 +41,6 @@
   object-fit: cover;
   width: 100%;
   min-height: 100%;
-  border-radius: 10px;
 }
 
 .textContainer {
@@ -49,6 +59,8 @@
   color: aqua;
   text-align: center;
   margin-top: 10px;
+  font-family: "Wire One", sans-serif;
+  letter-spacing: 2px;
 }
 
 .dataContainer {
@@ -59,9 +71,12 @@
 .dataContainer p {
   margin: 0;
   padding: 0;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 600;
-  color: rgb(52, 164, 255);
+  color: black;
+  font-family: "Wire One", sans-serif;
+  letter-spacing: 2px;
+  text-align: center;
 }
 .dataContainer h3 {
   margin: 0;
@@ -69,4 +84,6 @@
   font-size: 15px;
   font-weight: 600;
   color: aqua;
+  font-family: "Wire One", sans-serif;
+  letter-spacing: 2px;
 }

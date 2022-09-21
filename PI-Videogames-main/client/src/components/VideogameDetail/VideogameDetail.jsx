@@ -17,30 +17,32 @@ const VideogameDetail = () => {
   return (
     <div className={s.container}>
       <Nav />
-      <div className={s.infoContainer}>
-        <div className={s.imgContainer}>
-          <img src={videogame.background_image} alt="videogame" />
-        </div>
-        <div className={s.textContainer}>
-          <h1>{videogame.name}</h1>
-          <div className={s.dataContainer}>
-            <h3>Genres : </h3>
-            <p>{` ${videogame.genres}`}</p>
+      <div className={s.outsideBorder}>
+        <div className={s.infoContainer}>
+          <div className={s.imgContainer}>
+            <img src={videogame.background_image} alt="videogame" />
           </div>
-          <div className={s.dataContainer}>
-            <h3>Platforms : </h3>
-            <p>{` ${videogame.platforms}`}</p>
-          </div>
-          <div className={s.dataContainer}>
-            <h3>Rating : </h3>
-            <p>{videogame.rating}</p>
-          </div>
-          <div className={s.dataContainer}>
-            <h3>Released :</h3>
-            <p>{videogame.released}</p>
-          </div>
-          <div className={s.dataContainer}>
-            <p>{videogame.description}</p>
+          <div className={s.textContainer}>
+            <h1>{videogame.name}</h1>
+            <div className={s.dataContainer}>
+              <h3>Genres : </h3>
+              <p>{` ${videogame.genres}`}</p>
+            </div>
+            <div className={s.dataContainer}>
+              <h3>Platforms : </h3>
+              <p>{` ${videogame.platforms}`}</p>
+            </div>
+            <div className={s.dataContainer}>
+              <h3>Rating : </h3>
+              <p>{videogame.rating}</p>
+            </div>
+            <div className={s.dataContainer}>
+              <h3>Released :</h3>
+              <p>{videogame.released}</p>
+            </div>
+            <div className={s.dataContainer}>
+              <p>{videogame.description}</p>
+            </div>
           </div>
         </div>
       </div>

@@ -125,86 +125,116 @@ export default function CreateVideogame() {
     <div className={s.container}>
       <Nav />
       <h1>Crea tu videojuego!</h1>
-      <div className={s.formContainer}>
-        <form className={s.form} onSubmit={handleSubmit}>
-          <div>
-            <label>Nombre</label>
-            <input
-              type="text"
-              name="name"
-              value={input.name}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <label>Descripción</label>
-            <input
-              type="textarea"
-              name="description"
-              value={input.description}
-              onChange={handleChange}
-            />
-            {errors.description && (
-              <p className={s.errors}>{errors.description}</p>
-            )}
-          </div>
-          <div>
-            <label>Fecha de lanzamiento</label>
-            <input
-              type="date"
-              name="released"
-              value={input.released}
-              onChange={handleChange}
-            />
-            {errors.released && <p className={s.errors}>{errors.released}</p>}
-          </div>
-          <div>
-            <label>Rating</label>
-            <input
-              type="number"
-              name="rating"
-              value={input.rating}
-              onChange={handleChange}
-            />
-            {errors.rating && <p className={s.errors}>{errors.rating}</p>}
-          </div>
-          <div>
-            <label>Plataformas</label>
-            <select
-              name="platforms"
-              value={input.platforms}
-              onChange={handlePlatform}
-            >
-              {platforms.map((p) => (
-                <option value={p.name}>{p.name}</option>
-              ))}
-            </select>
+      <div className={s.outsideBorder}>
+        <div className={s.formContainer}>
+          <div className={s.contentCreate}>
+            <form className={s.createForm} onSubmit={handleSubmit}>
+              {/*------------- NAME CONTAINER -------------*/}
+              <div className={s.inputContainer}>
+                <input
+                  type="text"
+                  name="name"
+                  autoComplete="off"
+                  required
+                  value={input.name}
+                  onChange={handleChange}
+                  className={s.input}
+                />
+                <label for={"name"} className={s.label}>
+                  <span className={s.content}>Name</span>
+                </label>
+              </div>
 
-            <ul>
-              {input.platforms.map((p) => (
-                <li>{p}</li>
-              ))}
-            </ul>
-            {errors.platforms && <p className={s.errors}>{errors.platforms}</p>}
+              {/*-------------RATING CONTAINER -------------*/}
+              <div className={s.inputContainer}>
+                <input
+                  type="number"
+                  name="rating"
+                  autoComplete="off"
+                  value={input.rating}
+                  onChange={handleChange}
+                  className={s.input}
+                  required
+                />
+
+                <label for={"name"} className={s.label}>
+                  <span className={s.content}>Rating</span>
+                </label>
+              </div>
+              {/*------------- DESCRIPTION CONTAINER-------------*/}
+              <div className={s.inputContainerArea}>
+                <textarea
+                  type="text"
+                  name="description"
+                  autoComplete="off"
+                  value={input.description}
+                  onChange={handleChange}
+                  className={s.input}
+                  required
+                />
+                <label for={"name"} className={s.label}>
+                  <span className={s.content}>Description</span>
+                </label>
+              </div>
+              <div className={s.selectContainer}>
+                {/*-------------DATE CONTAINER -------------*/}
+                <div>
+                  <label>Fecha de lanzamiento</label>
+                  <input
+                    type="date"
+                    name="released"
+                    value={input.released}
+                    onChange={handleChange}
+                  />
+                  {errors.released && (
+                    <p className={s.errors}>{errors.released}</p>
+                  )}
+                </div>
+                {/*-------------PLATFORM CONTAINER -------------*/}
+                <div>
+                  <label className={s.labelSelector}>Platforms</label>
+                  <select
+                    name="platforms"
+                    value={input.platforms}
+                    onChange={handlePlatform}
+                  >
+                    {platforms.map((p) => (
+                      <option value={p.name}>{p.name}</option>
+                    ))}
+                  </select>
+
+                  <ul>
+                    {input.platforms.map((p) => (
+                      <li>{p}</li>
+                    ))}
+                  </ul>
+                </div>
+                {/*-------------GENRE CONTAINER -------------*/}
+                <div>
+                  <label className={s.labelSelector}>Genres</label>
+                  <select
+                    name="genres"
+                    value={input.genres}
+                    onChange={handleGenre}
+                  >
+                    {genres.map((g) => (
+                      <option value={g.name}>{g.name}</option>
+                    ))}
+                  </select>
+                  <ul>
+                    {input.genres.map((g) => (
+                      <li>{g}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <button type="submit" className={s.btn}>
+                Create
+              </button>
+            </form>
           </div>
-          <div>
-            <label>Géneros</label>
-            <select name="genres" value={input.genres} onChange={handleGenre}>
-              {genres.map((g) => (
-                <option value={g.name}>{g.name}</option>
-              ))}
-            </select>
-            <ul>
-              {input.genres.map((g) => (
-                <li>{g}</li>
-              ))}
-            </ul>
-            {errors.genres && <p className={s.errors}>{errors.genres}</p>}
-          </div>
-          <div>
-            <button type="submit">Crear</button>
-          </div>
-        </form>
+        </div>
       </div>
     </div>
   );
