@@ -92,15 +92,14 @@ function rootReducer(state = initialState, action) {
         filtered: allVgFiltered,
       };
     case "FILTER_BY_CREATED":
+      const allVg2 = state.videogames;
       if (action.payload === "Todos") {
-        return { ...state, filtered: state.videogames };
+        return { ...state, filtered: allVg2 };
       }
       if (action.payload === "DB") {
         return {
           ...state,
-          filtered: state.videogames.filter(
-            (game) => typeof game.id === "string"
-          ),
+          filtered: allVg2.filter((game) => typeof game.id === "string"),
         };
       }
       if (action.payload === "API") {
@@ -111,7 +110,7 @@ function rootReducer(state = initialState, action) {
           ),
         };
       }
-
+      break;
     default:
       return state;
   }

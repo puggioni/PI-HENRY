@@ -3,24 +3,30 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { getDetails } from "../../actions/index.js";
+import image from "../../assets/images/create-game-img.jpg";
 import Nav from "../Nav/Nav";
 import s from "./VideogameDetail.module.css";
 const VideogameDetail = () => {
   const videogame = useSelector((state) => state.details);
   const dispatch = useDispatch();
   const { id } = useParams();
-
+  useEffect(() => {
+    dispatch(getDetails(id));
+  });
   useEffect(() => {
     dispatch(getDetails(id));
   }, [dispatch]);
-  console.log(videogame);
   return (
     <div className={s.container}>
       <Nav />
       <div className={s.outsideBorder}>
         <div className={s.infoContainer}>
           <div className={s.imgContainer}>
-            <img src={videogame.background_image} alt="videogame" />
+            {typeof videogame.id === "number" ? (
+              <img src={videogame.background_image} alt="imagen" />
+            ) : (
+              <img src={image} alt="imagen" />
+            )}
           </div>
           <div className={s.textContainer}>
             <h1>{videogame.name}</h1>

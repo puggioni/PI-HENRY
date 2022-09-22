@@ -36,15 +36,27 @@ const getApiInfo = async () => {
 };
 
 const getDbInfo = async () => {
-  return await Videogame.findAll({
+  const result = await Videogame.findAll({
     include: {
       model: Genre,
       attributes: ["name"],
-      through: {
-        attributes: [],
-      },
+      as: "genres",
     },
   });
+  const dbInfo = result.map((game) => {
+    return {
+      id: game.id,
+      name: game.name,
+      description: game.description,
+      released: game.released,
+      rating: game.rating,
+      platforms: game.platforms,
+      genres: game.genres.map((genre) => genre.name).join(", "),
+    };
+  });
+
+  console.log(dbInfo);
+  return dbInfo;
 };
 
 const getAllVideogames = async () => {

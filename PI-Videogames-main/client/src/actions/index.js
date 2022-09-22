@@ -8,8 +8,6 @@ import {
   FILTER_BY_CREATED,
   SEARCH_BY_NAME,
   GET_PLATFORMS,
-  SHOW_LOADING,
-  HIDE_LOADING,
 } from "./const";
 
 export function getVideogames() {
@@ -61,11 +59,12 @@ export function filterByCreated(created) {
   };
 }
 export function createVideogame(payload) {
-  return async function(dispatch) {
+  return async function() {
     const response = await axios.post(
       "http://localhost:3001/videogames",
       payload
     );
+    return response;
   };
 }
 

@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getVideogames } from "../../actions";
 import s from "./home.module.css";
-import notFound from "../../assets/images/404.png";
+import notFound from "../../assets/images/Loader.gif";
 import { useState } from "react";
 import Pagination from "../Pagination/Pagination";
 import Filters from "../Filters/Filters";

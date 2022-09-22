@@ -24,7 +24,7 @@ const getVideogames = async (req, res) => {
 const getVideogameById = async (req, res) => {
   const { id } = req.params;
   const videogamesTotal = await getAllVideogames();
-  console.log(videogamesTotal);
+
   if (id.includes("-")) {
     const videogame = videogamesTotal.find((game) => game.id === id);
     videogame
@@ -52,15 +52,7 @@ const getVideogameById = async (req, res) => {
 };
 
 const createVideogame = async (req, res) => {
-  const {
-    name,
-    description,
-    released,
-    rating,
-    platforms,
-    genres,
-    createdInDb,
-  } = req.body;
+  const { name, description, released, rating, genres, platforms } = req.body;
   try {
     const videogame = await Videogame.create({
       name,
@@ -68,15 +60,14 @@ const createVideogame = async (req, res) => {
       released,
       rating,
       platforms,
-      createdInDb,
     });
     const genresDb = await Genre.findAll({
       where: {
-        name: genres,
+        name: genres.map((genre) => genre),
       },
     });
     videogame.addGenre(genresDb);
-    res.status(200).send("Juego creado con éxito");
+    res.status(200).send("Videogame created");
   } catch (error) {
     res.send({ error: error.message });
   }

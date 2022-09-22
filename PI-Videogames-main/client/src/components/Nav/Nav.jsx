@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import s from "./Nav.module.css";
-import SearchBar from "../SearchBar/SearchBar.jsx";
 const Nav = () => {
   return (
     <div className={s.container}>

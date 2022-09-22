@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getGenres, getPlatforms, createVideogame } from "../../actions";
 import Nav from "../Nav/Nav";
 import s from "./createVideogame.module.css";
-import { useNavigate } from "react-router-dom";
 
 function validate(input) {
   let errors = {};
@@ -17,9 +16,6 @@ function validate(input) {
 
   if (input.description.length > 250) {
     errors.description = "La descripcion debe tener menos de 250 caracteres";
-  }
-  if (!input.released) {
-    errors.released = "El juego debe tener una fecha de lanzamiento";
   }
 
   if (!input.rating) {
@@ -42,18 +38,14 @@ function validate(input) {
 }
 export default function CreateVideogame() {
   const dispatch = useDispatch();
-  const navigate = useNavigate;
+
   useEffect(() => {
     dispatch(getPlatforms());
   }, []);
   useEffect(() => {
     dispatch(getGenres());
   }, []);
-  useEffect(() => {
-    if (Object.keys(errors).length === 0) {
-      dispatch(createVideogame(input));
-    }
-  }, [errors]);
+
   const [errors, setErrors] = useState({});
   const [input, setInput] = useState({
     name: "",
@@ -104,7 +96,6 @@ export default function CreateVideogame() {
       })
     );
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (Object.keys(errors).length === 0) {
@@ -125,9 +116,12 @@ export default function CreateVideogame() {
   return (
     <div className={s.container}>
       <Nav />
-      <h1>Crea tu videojuego!</h1>
+
       <div className={s.outsideBorder}>
         <div className={s.formContainer}>
+          <div className={s.tittleContainer}>
+            <h1>Ceate a Game</h1>
+          </div>
           <div className={s.contentCreate}>
             <form className={s.createForm} onSubmit={handleSubmit}>
               {/*------------- NAME CONTAINER -------------*/}
@@ -139,6 +133,7 @@ export default function CreateVideogame() {
                   value={input.name}
                   onChange={handleChange}
                   className={s.input}
+                  required
                 />
 
                 <label for={"name"} className={s.label}>
@@ -158,6 +153,7 @@ export default function CreateVideogame() {
                   value={input.rating}
                   onChange={handleChange}
                   className={s.input}
+                  required
                 />
                 {errors.rating && <p className={s.content2}>{errors.rating}</p>}
                 <label for={"name"} className={s.label}>
@@ -173,6 +169,7 @@ export default function CreateVideogame() {
                   value={input.description}
                   onChange={handleChange}
                   className={s.input}
+                  required
                 />
                 {errors.description && (
                   <p className={s.content2}>{errors.description}</p>
@@ -213,12 +210,12 @@ export default function CreateVideogame() {
 
                   <ul>
                     {input.platforms.map((p) => (
-                      <li>{p}</li>
+                      <li key={p}>{p}</li>
                     ))}
                   </ul>
                 </div>
                 {/*-------------GENRE CONTAINER -------------*/}
-                <div>
+                <div className={s.dropdownContainer}>
                   <label className={s.labelSelector}>Genres</label>
                   <select
                     name="genres"
@@ -234,15 +231,16 @@ export default function CreateVideogame() {
                   )}
                   <ul>
                     {input.genres.map((g) => (
-                      <li>{g}</li>
+                      <li key={g}>{g}</li>
                     ))}
                   </ul>
                 </div>
               </div>
-
-              <button type="submit" className={s.btn}>
-                Create
-              </button>
+              <div className={s.buttonContainer}>
+                <button type="submit" className={s.btn}>
+                  Create
+                </button>
+              </div>
             </form>
           </div>
         </div>

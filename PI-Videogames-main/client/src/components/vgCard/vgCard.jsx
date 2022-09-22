@@ -2,6 +2,7 @@ import React from "react";
 import s from "./vgCard.module.css";
 import { Link } from "react-router-dom";
 import { AiOutlineInfoCircle, AiFillStar } from "react-icons/ai";
+import image from "../../assets/images/create-game-img.jpg";
 const VgCard = (props) => {
   return (
     <div className={s.outSideBorder}>
@@ -11,7 +12,7 @@ const VgCard = (props) => {
             {props.image ? (
               <img src={props.image} alt="imagen" />
             ) : (
-              <img src="../../assets/cardImg/vgImg.jfif" alt="imagen" />
+              <img src={image} alt="imagen" />
             )}
           </Link>
         </div>
@@ -23,9 +24,7 @@ const VgCard = (props) => {
             <p>
               Genres:{" "}
               {`${
-                typeof props.genres === "string"
-                  ? props.genres
-                  : props.genres.join(", ")
+                typeof props.genres === "string" ? props.genres : props.genres
               }`}
             </p>
           </div>
