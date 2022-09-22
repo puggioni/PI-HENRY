@@ -69,6 +69,12 @@
   font-size: 16px;
   color: aqua;
 }
+
+.inputContainer input::-webkit-inner-spin-button,
+.inputContainer input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 .inputContainerArea textarea {
   width: 100%;
   height: 100%;
@@ -124,6 +130,17 @@
 .content {
   position: absolute;
   font-size: 30px;
+  font-family: "Wire One", sans-serif;
+  letter-spacing: 2px;
+  font-weight: bolder;
+  bottom: 5px;
+  left: 0;
+  transition: all 0.3s ease;
+}
+.content2 {
+  position: absolute;
+  font-size: 15px;
+  color: red;
   font-family: "Wire One", sans-serif;
   letter-spacing: 2px;
   font-weight: bolder;
@@ -212,4 +229,23 @@
   color: aqua;
   border: 3px solid aqua;
   transition: 0.5s ease;
+}
+
+.dateContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 85px;
+}
+.inputDate {
+  width: 100%;
+  height: 44px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #96219cd8;
+  color: #0bd2d3;
+  font-family: "Wire One", sans-serif;
+  letter-spacing: 5px;
+  font-weight: bolder;
 }

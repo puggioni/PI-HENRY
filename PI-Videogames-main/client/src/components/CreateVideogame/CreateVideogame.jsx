@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getGenres, getPlatforms, createVideogame } from "../../actions";
-
 import Nav from "../Nav/Nav";
 import s from "./createVideogame.module.css";
+import { useNavigate } from "react-router-dom";
+
 function validate(input) {
   let errors = {};
   if (!input.name) {
@@ -42,20 +42,19 @@ function validate(input) {
 }
 export default function CreateVideogame() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const navigate = useNavigate;
   useEffect(() => {
     dispatch(getPlatforms());
   }, []);
   useEffect(() => {
     dispatch(getGenres());
   }, []);
-
+  useEffect(() => {
+    if (Object.keys(errors).length === 0) {
+      dispatch(createVideogame(input));
+    }
+  }, [errors]);
   const [errors, setErrors] = useState({});
-
-  const genres = useSelector((state) => state.genres);
-
-  const platforms = useSelector((state) => state.platforms);
-
   const [input, setInput] = useState({
     name: "",
     description: "",
@@ -64,29 +63,20 @@ export default function CreateVideogame() {
     platforms: [],
     genres: [],
   });
+  const genres = useSelector((state) => state.genres);
+
+  const platforms = useSelector((state) => state.platforms);
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setInput({
       ...input,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
     setErrors(
       validate({
         ...input,
-        [e.target.name]: e.target.value,
-      })
-    );
-  };
-
-  const handleGenre = (e) => {
-    setInput({
-      ...input,
-      genres: [...input.genres, e.target.value],
-    });
-    setErrors(
-      validate({
-        ...input,
-        genres: [...input.genres, e.target.value],
+        [name]: value,
       })
     );
   };
@@ -99,6 +89,18 @@ export default function CreateVideogame() {
       validate({
         ...input,
         platforms: [...input.platforms, e.target.value],
+      })
+    );
+  };
+  const handleGenre = (e) => {
+    setInput({
+      ...input,
+      genres: [...input.genres, e.target.value],
+    });
+    setErrors(
+      validate({
+        ...input,
+        genres: [...input.genres, e.target.value],
       })
     );
   };
@@ -116,7 +118,6 @@ export default function CreateVideogame() {
         platforms: [],
         genres: [],
       });
-      navigate("/videogames");
     } else {
       alert("Please complete the form correctly");
     }
@@ -135,14 +136,17 @@ export default function CreateVideogame() {
                   type="text"
                   name="name"
                   autoComplete="off"
-                  required
                   value={input.name}
                   onChange={handleChange}
                   className={s.input}
                 />
+
                 <label for={"name"} className={s.label}>
                   <span className={s.content}>Name</span>
                 </label>
+                {errors.name ? (
+                  <p className={s.content2}>{errors.name}</p>
+                ) : null}
               </div>
 
               {/*-------------RATING CONTAINER -------------*/}
@@ -154,9 +158,8 @@ export default function CreateVideogame() {
                   value={input.rating}
                   onChange={handleChange}
                   className={s.input}
-                  required
                 />
-
+                {errors.rating && <p className={s.content2}>{errors.rating}</p>}
                 <label for={"name"} className={s.label}>
                   <span className={s.content}>Rating</span>
                 </label>
@@ -170,25 +173,27 @@ export default function CreateVideogame() {
                   value={input.description}
                   onChange={handleChange}
                   className={s.input}
-                  required
                 />
+                {errors.description && (
+                  <p className={s.content2}>{errors.description}</p>
+                )}
                 <label for={"name"} className={s.label}>
                   <span className={s.content}>Description</span>
                 </label>
               </div>
               <div className={s.selectContainer}>
                 {/*-------------DATE CONTAINER -------------*/}
-                <div>
-                  <label>Fecha de lanzamiento</label>
+                <div className={s.dateContainer}>
+                  <label className={s.labelSelector}>
+                    Fecha de lanzamiento
+                  </label>
                   <input
                     type="date"
                     name="released"
                     value={input.released}
                     onChange={handleChange}
+                    className={s.inputDate}
                   />
-                  {errors.released && (
-                    <p className={s.errors}>{errors.released}</p>
-                  )}
                 </div>
                 {/*-------------PLATFORM CONTAINER -------------*/}
                 <div>
@@ -202,6 +207,9 @@ export default function CreateVideogame() {
                       <option value={p.name}>{p.name}</option>
                     ))}
                   </select>
+                  {errors.platforms && (
+                    <p className={s.content2}>{errors.platforms}</p>
+                  )}
 
                   <ul>
                     {input.platforms.map((p) => (
@@ -221,6 +229,9 @@ export default function CreateVideogame() {
                       <option value={g.name}>{g.name}</option>
                     ))}
                   </select>
+                  {errors.genres && (
+                    <p className={s.content2}>{errors.genres}</p>
+                  )}
                   <ul>
                     {input.genres.map((g) => (
                       <li>{g}</li>
