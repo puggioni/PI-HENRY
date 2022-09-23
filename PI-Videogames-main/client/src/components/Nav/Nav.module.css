@@ -78,3 +78,11 @@
   color: #f990e8;
   transition: 0.5s;
 }
+
+.soundContainer {
+  height: 10px;
+}
+.sound {
+  margin-right: 30px;
+  margin-bottom: 20px;
+}

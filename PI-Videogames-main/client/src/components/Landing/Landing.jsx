@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import s from "./landing.module.css";
 import { AiOutlinePlayCircle } from "react-icons/ai";
+
 const Landing = () => {
   return (
     <div className={s.landingContainer}>
