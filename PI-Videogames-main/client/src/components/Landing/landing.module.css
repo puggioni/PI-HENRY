@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Fascinate&display=swap");
 
 .landingContainer {
-  background: url(../../assets/images/backgorund-landing-image.jpg) no-repeat
-    center center fixed;
+  background: url(../../assets/images/background-img.jpg) no-repeat center
+    center fixed;
   height: 100vh;
 }
 
@@ -27,14 +27,14 @@
   font-size: 6vw;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #bababa;
+  color: aqua;
 }
 .textContainer span:nth-child(1) {
-  color: #bababa;
+  color: aqua;
 }
 .textContainer span:nth-child(1)::after {
   content: "";
-  background: #bababa;
+  background: aqua;
   position: relative;
   top: -0.1em;
   width: 24vw;
@@ -43,28 +43,28 @@
   border-radius: 5px;
 }
 .textContainer span:nth-child(3) {
-  color: #444444;
+  color: #f990e8;
   letter-spacing: 0.18em;
   position: relative;
   top: -1.15em;
   z-index: 2;
-  text-shadow: 1px 1px 1px rgb(177, 177, 177), 0.2em 0.15em 0 rgb(0, 0, 0);
+  text-shadow: 1px 1px 1px rgb(177, 177, 177), 0.2em 0.15em 0 rgb(58, 58, 58);
 }
 .iconContainer {
   grid-area: iconContainer;
   font-size: 200px;
-  color: #bababa;
+  color: aqua;
   text-decoration: none;
   margin-right: 150px;
   margin-bottom: 100px;
 }
 .playIcon {
   position: relative;
-  color: #bababa;
+  color: aqua;
   text-decoration: none;
 }
 .playIcon:hover {
-  color: #444444;
+  color: #f990e8;
   transition: 0.3s;
   text-decoration: none;
 }

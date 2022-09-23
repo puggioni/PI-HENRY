@@ -28,7 +28,7 @@ const Searchbar = () => {
       <form>
         <input
           name="name"
-          placeholder="Buscar Juego..."
+          placeholder="Search game..."
           onChange={(e) => handlename(e)}
           value={name}
           autoComplete="off"
@@ -41,7 +41,7 @@ const Searchbar = () => {
           <AiOutlineSearch />
         </button>
         <button className={s.searchButton} onClick={(e) => showAll(e)}>
-          Mostrar Todos
+          Show all games
         </button>
       </form>
     </div>

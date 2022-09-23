@@ -36,7 +36,7 @@ const Filters = () => {
         {/* ===================GENRE SELECTOR=================== */}
         <select className={s.filterSelector} onChange={handleSelect}>
           <option className={s.filterOption} value="Todos">
-            Generos
+            Genres
           </option>
 
           {genres &&
@@ -56,14 +56,14 @@ const Filters = () => {
           id=""
         >
           <option className={s.filterOption} value="default">
-            Orden
+            Order
           </option>
 
           <option className={s.filterOption} value="asc">
-            Mayor a Menor
+            asc
           </option>
           <option className={s.filterOption} value="desc">
-            Menor a Mayor
+            desc
           </option>
 
           <option className={s.filterOption} value="A-Z">
@@ -73,7 +73,7 @@ const Filters = () => {
             Z - A
           </option>
         </select>
-        {/* ===================CREATED BY=================== */}
+        {/* ===================CREATED=================== */}
         <select
           className={s.filterSelector}
           onChange={handleSelectr3}
@@ -81,7 +81,7 @@ const Filters = () => {
           id=""
         >
           <option className={s.filterOption} value="Todos">
-            Origen
+            Created...
           </option>
           <option className={s.filterOption} value="API">
             API

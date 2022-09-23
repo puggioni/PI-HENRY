@@ -16,7 +16,7 @@ const Nav = () => {
       </Link>
       <div className={s.homeButton}>
         <Link to="/videogame" className={s.linkHome}>
-          Crear videojuego
+          Create Videogame
         </Link>
       </div>
     </div>
