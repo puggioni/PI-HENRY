@@ -31,3 +31,19 @@
   color: #984b9c;
   border: #984b9c 2px solid;
 }
+
+.icon {
+  color: #0bd2d3;
+  font-size: 30px;
+  margin: 0 5px;
+  cursor: pointer;
+  background-color: #984b9c;
+  border-radius: 5px;
+}
+
+.icon:hover {
+  transition: 0.5s;
+  background-color: #0bd2d3;
+  color: #984b9c;
+  border: #984b9c 2px solid;
+}

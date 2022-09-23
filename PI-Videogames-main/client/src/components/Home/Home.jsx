@@ -27,7 +27,13 @@ function Home() {
     indexOfLastVideogame
   );
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
+  const getPrevious = () => {
+    currentPage > 1 && setCurrentPage(currentPage - 1);
+  };
+  const getNext = () => {
+    currentPage < videogames.length / videogamesPerPage &&
+      setCurrentPage(currentPage + 1);
+  };
   return (
     <div className={s.homeContainer}>
       <Nav />
@@ -37,7 +43,12 @@ function Home() {
         totalVideogames={videogames.length}
         videogamesPerPage={videogamesPerPage}
         paginate={paginate}
+        getPrevious={getPrevious}
+        getNext={getNext}
       ></Pagination>
+      <div>
+        <p className={s.pageNumber}>{currentPage}</p>
+      </div>
       {/* ==============CARD SECTION============== */}
       <div className={s.vgContainer}>
         {currentVideogames.length > 1 ? (
