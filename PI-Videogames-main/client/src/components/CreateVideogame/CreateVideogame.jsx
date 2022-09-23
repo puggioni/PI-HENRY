@@ -118,9 +118,6 @@ export default function CreateVideogame() {
                       <option value={p.name}>{p.name}</option>
                     ))}
                   </select>
-                  {errors.platforms && (
-                    <p className={s.content2}>{errors.platforms}</p>
-                  )}
 
                   <ul>
                     {input.platforms.map((p) => (
@@ -140,14 +137,24 @@ export default function CreateVideogame() {
                       <option value={g.name}>{g.name}</option>
                     ))}
                   </select>
-                  {errors.genres && (
-                    <p className={s.content2}>{errors.genres}</p>
-                  )}
+
                   <ul>
                     {input.genres.map((g) => (
                       <li key={g}>{g}</li>
                     ))}
                   </ul>
+                </div>
+              </div>
+              <div className={s.errorContainer}>
+                <div className={s.error}>
+                  {errors.platforms && (
+                    <p className={s.content2}>{errors.platforms}</p>
+                  )}
+                </div>
+                <div className={s.error}>
+                  {errors.genres && (
+                    <p className={s.content2}>{errors.genres}</p>
+                  )}
                 </div>
               </div>
               <div className={s.buttonContainer}>

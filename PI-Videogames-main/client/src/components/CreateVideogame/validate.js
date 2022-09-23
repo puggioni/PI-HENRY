@@ -1,32 +1,32 @@
 export default function validate(input) {
   let errors = {};
   if (!input.name) {
-    errors.name = "El juego debe tener un nombre";
+    errors.name = "The name is required";
   }
 
   if (!input.description) {
-    errors.description = "El juego debe tener alguna descripcion";
+    errors.description = "The description is required";
   }
 
   if (input.description.length > 250) {
-    errors.description = "La descripcion debe tener menos de 250 caracteres";
+    errors.description = "Description must be less than 250 characters";
   }
 
   if (!input.rating) {
-    errors.rating = "El juego debe tener un rating";
+    errors.rating = "Rating is required";
   }
   if (
     !/^(?:[1-9]\d{0,2}(?:,\d{3})*|0)(?:\.\d+)?$/.test(input.rating) ||
     input.rating < 0 ||
     input.rating > 5
   ) {
-    errors.rating = "El rating debe ser un numero entre 0 y 5";
+    errors.rating = "Rating must be a number between 0 and 5";
   }
-  if (!input.platforms) {
-    errors.platforms = "El juego debe tener una plataforma";
+  if (input.platforms.length === 0) {
+    errors.platforms = "Please select at least one platform";
   }
-  if (!input.genres) {
-    errors.genres = "El juego debe tener un genero";
+  if (input.genres.length === 0) {
+    errors.genres = "Please select at least one genre";
   }
   return errors;
 }

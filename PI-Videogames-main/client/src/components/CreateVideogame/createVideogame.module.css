@@ -262,3 +262,24 @@
   letter-spacing: 5px;
   font-weight: bolder;
 }
+.errorContainer {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 700px;
+  height: 20px;
+}
+.error {
+  position: relative;
+  font-size: 20px;
+  color: red;
+  font-family: "Wire One", sans-serif;
+  letter-spacing: 2px;
+  font-weight: bolder;
+  bottom: 5px;
+  right: 0;
+  transition: all 0.3s ease;
+  user-select: none;
+  width: 100%;
+}
