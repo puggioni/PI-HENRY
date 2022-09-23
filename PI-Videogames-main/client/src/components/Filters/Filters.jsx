@@ -11,7 +11,7 @@ import Searchbar from "../SearchBar/SearchBar";
 import s from "./filters.module.css";
 
 const Filters = () => {
-  const dispatch = useDispatch();
+  /* ---------------HANDLERS--------------- */
   const handleSelect = (e) => {
     dispatch(filterByGenre(e.target.value));
   };
@@ -21,6 +21,9 @@ const Filters = () => {
   const handleSelectr3 = (e) => {
     dispatch(filterByCreated(e.target.value));
   };
+
+  /* ---------------GENEROS--------------- */
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getGenres());
   }, [dispatch]);
@@ -30,6 +33,7 @@ const Filters = () => {
     <div className={s.filterContainer}>
       <Searchbar />
       <div className={s.selectorContainer}>
+        {/* ===================GENRE SELECTOR=================== */}
         <select className={s.filterSelector} onChange={handleSelect}>
           <option className={s.filterOption} value="Todos">
             Generos
@@ -44,7 +48,7 @@ const Filters = () => {
               );
             })}
         </select>
-
+        {/* ===================ORDER BY=================== */}
         <select
           className={s.filterSelector}
           onChange={handleSelect2}
@@ -69,6 +73,7 @@ const Filters = () => {
             Z - A
           </option>
         </select>
+        {/* ===================CREATED BY=================== */}
         <select
           className={s.filterSelector}
           onChange={handleSelectr3}
