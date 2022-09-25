@@ -1,7 +1,8 @@
 const { Videogame, Genre } = require("../db");
-const { getAllVideogames } = require("./index.controllers");
+const { getAllVideogames } = require("./data.controllers");
 const axios = require("axios");
 const { API_KEY } = process.env;
+
 const getVideogames = async (req, res) => {
   const { name } = req.query;
   const videogamesTotal = await getAllVideogames();
