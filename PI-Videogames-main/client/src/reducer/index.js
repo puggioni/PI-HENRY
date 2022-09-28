@@ -1,8 +1,8 @@
 const initialState = {
   videogames: [],
+  filtered: [],
   genres: [],
   platforms: [],
-  filtered: [],
   details: {},
   loading: false,
 };
