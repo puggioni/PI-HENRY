@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Landing from "../components/Landing/Landing";
+import Landing from "../src/components/Landing/Landing";
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 

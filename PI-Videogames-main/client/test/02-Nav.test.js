@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import Nav from "../components/Nav/Nav";
+import Nav from "../src/components/Nav/Nav";
 import { BrowserRouter as Router } from "react-router-dom";
 
 test("should render two <Link /> ", () => {
