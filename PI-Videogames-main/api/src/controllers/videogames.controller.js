@@ -68,7 +68,7 @@ const createVideogame = async (req, res) => {
       },
     });
     videogame.addGenre(genresDb);
-    res.status(200).send("Videogame created");
+    res.status(201).send("Videogame created");
   } catch (error) {
     res.send({ error: error.message });
   }
