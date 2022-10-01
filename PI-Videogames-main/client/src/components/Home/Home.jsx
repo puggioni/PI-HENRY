@@ -36,38 +36,53 @@ function Home() {
   };
   return (
     <div className={s.homeContainer}>
-      <Nav />
-      <Filters />
-      {/* ==============PAGINATION============== */}
-      <Pagination
-        totalVideogames={videogames.length}
-        videogamesPerPage={videogamesPerPage}
-        paginate={paginate}
-        getPrevious={getPrevious}
-        getNext={getNext}
-      ></Pagination>
-      <div>
-        <p className={s.pageNumber}>{currentPage}</p>
-      </div>
-      {/* ==============CARD SECTION============== */}
-      <div className={s.vgContainer}>
-        {currentVideogames.length > 1 ? (
-          currentVideogames.map((g) => (
-            <VgCard
-              key={g.id}
-              name={g.name}
-              rating={g.rating}
-              genres={g.genres}
-              image={g.background_image}
-              id={g.id}
-            />
-          ))
-        ) : (
+      {currentVideogames.length > 0 ? (
+        <div>
+          <Nav />
+
+          <Filters />
+          {/* ==============PAGINATION============== */}
+
+          <Pagination
+            totalVideogames={videogames.length}
+            videogamesPerPage={videogamesPerPage}
+            paginate={paginate}
+            getPrevious={getPrevious}
+            getNext={getNext}
+          ></Pagination>
           <div>
-            <img className={s.notFound} src={loader} alt="notFoundImg"></img>
+            <p className={s.pageNumber}>{currentPage}</p>
           </div>
-        )}
-      </div>
+
+          {/* ==============CARD SECTION============== */}
+          <div className={s.vgContainer}>
+            {currentVideogames.length > 1 ? (
+              currentVideogames.map((g) => (
+                <VgCard
+                  key={g.id}
+                  name={g.name}
+                  rating={g.rating}
+                  genres={g.genres}
+                  image={g.background_image}
+                  id={g.id}
+                />
+              ))
+            ) : (
+              <div>
+                <img
+                  className={s.notFound}
+                  src={loader}
+                  alt="notFoundImg"
+                ></img>
+              </div>
+            )}
+          </div>
+        </div>
+      ) : (
+        <div className={s.imgNotFoundContainer}>
+          <img className={s.notFound} src={loader} alt="notFoundImg"></img>
+        </div>
+      )}
     </div>
   );
 }

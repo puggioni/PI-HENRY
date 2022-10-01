@@ -20,9 +20,11 @@
   grid-row-gap: 10px;
   height: fit-content;
 }
-
-.notFound {
-  margin-left: 45vw;
+.imgNotFoundContainer {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .pageNumber {
