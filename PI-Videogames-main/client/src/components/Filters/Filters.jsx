@@ -28,7 +28,7 @@ const Filters = () => {
     dispatch(getGenres());
   }, [dispatch]);
   const genres = useSelector((state) => state.genres);
-  console.log(genres);
+
   return (
     <div className={s.filterContainer}>
       <Searchbar />

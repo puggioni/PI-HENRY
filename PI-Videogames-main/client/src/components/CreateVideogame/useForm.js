@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { createVideogame } from "../../actions";
 import validate from "./validate";
-
+import { useNavigate } from "react-router-dom";
 const useForm = () => {
+  const navigate = useNavigate();
   const [input, setInput] = useState({
     name: "",
     description: "",
@@ -64,6 +65,7 @@ const useForm = () => {
         platforms: [],
         genres: [],
       });
+      navigate("/videogames");
     } else {
       alert("Please complete the form correctly");
     }

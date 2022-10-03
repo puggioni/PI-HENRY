@@ -12,10 +12,11 @@ import Nav from "../Nav/Nav";
 
 function Home() {
   const dispatch = useDispatch();
+
+  const videogames = useSelector((state) => state.filtered);
   useEffect(() => {
     dispatch(getVideogames());
-  }, [dispatch]);
-  const videogames = useSelector((state) => state.filtered);
+  }, []);
 
   /* ==================PAGINATION==================== */
   const [currentPage, setCurrentPage] = useState(1);
