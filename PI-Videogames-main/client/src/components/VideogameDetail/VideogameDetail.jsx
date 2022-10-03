@@ -5,9 +5,11 @@ import s from "./VideogameDetail.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import { getDetails } from "../../actions/index.js";
+import { getDetails, deleteVideogame } from "../../actions/index.js";
+import { useNavigate } from "react-router-dom";
 
 const VideogameDetail = () => {
+  const navigate = useNavigate();
   const videogame = useSelector((state) => state.details);
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -17,6 +19,11 @@ const VideogameDetail = () => {
   useEffect(() => {
     dispatch(getDetails(id));
   }, [dispatch]);
+  const handleClick = () => {
+    dispatch(deleteVideogame(id));
+    alert("Game deleted");
+    navigate("/videogames");
+  };
   return (
     <div className={s.container}>
       <Nav />
@@ -32,7 +39,12 @@ const VideogameDetail = () => {
           </div>
           <div className={s.textContainer}>
             {/* =================TITLE================= */}
-            <h1>{videogame.name}</h1>
+            <div className={s.titleContainer}>
+              <h1>{videogame.name}</h1>
+              {typeof videogame.id === "number" ? null : (
+                <button onClick={handleClick}>Delete Game</button>
+              )}
+            </div>
             {/* =================GENRE================= */}
             <div className={s.dataContainer}>
               <h3>Genres : </h3>

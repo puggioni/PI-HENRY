@@ -74,8 +74,19 @@ const createVideogame = async (req, res) => {
   }
 };
 
+const deleteVideogame = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const videogame = await Videogame.findByPk(id);
+    await videogame.destroy();
+    res.send("Videogame deleted");
+  } catch (error) {
+    res.send({ error: error.message });
+  }
+};
 module.exports = {
   getVideogames,
   getVideogameById,
   createVideogame,
+  deleteVideogame,
 };

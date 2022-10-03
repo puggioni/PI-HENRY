@@ -1,6 +1,7 @@
 import axios from "axios";
 import {
   GET_DETAILS,
+  DELETE_VIDEOGAME,
   GET_GENRES,
   GET_VIDEOGAMES,
   FILTER_BY_GENRE,
@@ -20,6 +21,13 @@ export function getDetails(id) {
   return async function(dispatch) {
     const response = await axios.get(`http://localhost:3001/videogame/${id}`);
     dispatch({ type: GET_DETAILS, payload: response.data });
+  };
+}
+
+export function deleteVideogame(id) {
+  return async function(dispatch) {
+    await axios.delete(`http://localhost:3001/videogame/${id}`);
+    dispatch({ type: DELETE_VIDEOGAME, payload: id });
   };
 }
 export function searchByName(name) {

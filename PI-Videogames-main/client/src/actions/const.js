@@ -1,5 +1,6 @@
 export const GET_VIDEOGAMES = "GET_VIDEOGAMES";
 export const GET_DETAILS = "GET_DETAILS";
+export const DELETE_VIDEOGAME = "DELETE_VIDEOGAME";
 export const CREATE_VIDEOGAME = "CREATE_VIDEOGAME";
 export const SEARCH_BY_NAME = "SEARCH_BY_NAME";
 export const GET_GENRES = "GET_GENRES";

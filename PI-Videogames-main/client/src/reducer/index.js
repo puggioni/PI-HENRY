@@ -24,6 +24,13 @@ function rootReducer(state = initialState, action) {
         ...state,
         details: action.payload,
       };
+    case "DELETE_VIDEOGAME":
+      return {
+        ...state,
+        videogames: state.videogames.filter(
+          (videogame) => videogame.id !== action.payload
+        ),
+      };
     case "GET_GENRES":
       return {
         ...state,
