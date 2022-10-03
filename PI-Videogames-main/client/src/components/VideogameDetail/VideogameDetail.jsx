@@ -42,7 +42,9 @@ const VideogameDetail = () => {
             <div className={s.titleContainer}>
               <h1>{videogame.name}</h1>
               {typeof videogame.id === "number" ? null : (
-                <button onClick={handleClick}>Delete Game</button>
+                <button onClick={handleClick} className={s.deleteBtn}>
+                  Delete Game
+                </button>
               )}
             </div>
             {/* =================GENRE================= */}
