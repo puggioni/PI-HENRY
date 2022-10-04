@@ -1,50 +1,55 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { useState } from "react";
+import { connect } from "react-redux";
 import { getVideogames, searchByName } from "../../actions/index";
 import s from "./searchBar.module.css";
 import { AiOutlineSearch } from "react-icons/ai";
-const Searchbar = () => {
-  const [name, setname] = useState("");
-  const dispatch = useDispatch();
 
-  const handleSearch = (e) => {
+class SearchBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+    };
+    this.handleSearch = this.handleSearch.bind(this);
+  }
+  handlename = (e) => {
     e.preventDefault();
-    dispatch(searchByName(name));
-    console.log(name);
+    this.setState({ name: e.target.value });
   };
 
-  const handlename = (e) => {
+  handleSearch = (e) => {
     e.preventDefault();
-    setname(e.target.value);
-    console.log(e.target.value);
+    this.props.searchByName(this.state.name);
   };
-  const showAll = (e) => {
+  showAll = (e) => {
     e.preventDefault();
-    dispatch(getVideogames());
+    this.props.getVideogames();
   };
-  return (
-    <div className={s.searchBarContainer}>
-      <form>
-        <input
-          name="name"
-          placeholder="Search game..."
-          onChange={(e) => handlename(e)}
-          value={name}
-          autoComplete="off"
-        />
-        <button
-          type="submit"
-          className={s.searchButton}
-          onClick={(e) => handleSearch(e)}
-        >
-          <AiOutlineSearch />
-        </button>
-        <button className={s.searchButton} onClick={(e) => showAll(e)}>
-          Show all games
-        </button>
-      </form>
-    </div>
-  );
-};
-export default Searchbar;
+  render() {
+    return (
+      <div className={s.searchBarContainer}>
+        <form>
+          <input
+            name="name"
+            placeholder="Search game..."
+            onChange={(e) => this.handlename(e)}
+            value={this.state.name}
+            autoComplete="off"
+          />
+          <button
+            type="submit"
+            className={s.searchButton}
+            onClick={(e) => this.handleSearch(e)}
+          >
+            <AiOutlineSearch />
+          </button>
+          <button className={s.searchButton} onClick={(e) => this.showAll(e)}>
+            Show all games
+          </button>
+        </form>
+      </div>
+    );
+  }
+}
+
+export default connect(null, { getVideogames, searchByName })(SearchBar);

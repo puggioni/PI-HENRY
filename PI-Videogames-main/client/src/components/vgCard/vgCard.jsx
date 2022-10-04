@@ -2,7 +2,7 @@ import React from "react";
 import s from "./vgCard.module.css";
 import image from "../../assets/images/create-game-img.jpg";
 import { Link } from "react-router-dom";
-import { AiOutlineInfoCircle, AiFillStar } from "react-icons/ai";
+import { AiFillStar } from "react-icons/ai";
 
 const VgCard = (props) => {
   return (

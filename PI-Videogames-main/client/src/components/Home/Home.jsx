@@ -37,7 +37,7 @@ function Home() {
   };
   return (
     <div className={s.homeContainer}>
-      {currentVideogames.length > 0 ? (
+      {currentVideogames.length > 1 ? (
         <div>
           <Nav />
 
