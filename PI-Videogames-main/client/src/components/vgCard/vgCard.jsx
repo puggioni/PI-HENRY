@@ -37,10 +37,6 @@ const VgCard = (props) => {
             <AiFillStar className={s.icon} />
             <p>{props.rating}</p>
           </div>
-          {/* =================INFO================= */}
-          <Link to={`/videogame/${props.id}`}>
-            <AiOutlineInfoCircle className={s.info} />
-          </Link>
         </div>
       </div>
     </div>

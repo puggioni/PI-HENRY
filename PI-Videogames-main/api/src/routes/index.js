@@ -13,6 +13,7 @@ const { getGenres } = require("../controllers/genre.controller");
 const { platforms } = require("../controllers/platform.controller");
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
+
 router.get("/videogame/:id", getVideogameById);
 router.delete("/videogame/:id", deleteVideogame);
 router.get("/videogames", getVideogames);

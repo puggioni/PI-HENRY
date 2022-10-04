@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getGenres, getPlatforms, createVideogame } from "../../actions";
+import { getGenres, getPlatforms } from "../../actions";
 import Nav from "../Nav/Nav";
 import s from "./createVideogame.module.css";
 import useForm from "./useForm";
@@ -50,7 +50,7 @@ export default function CreateVideogame() {
                   required
                 />
 
-                <label for={"name"} className={s.label}>
+                <label htmlFor={"name"} className={s.label}>
                   <span className={s.content}>Name</span>
                 </label>
                 {errors.name ? (
@@ -70,7 +70,7 @@ export default function CreateVideogame() {
                   required
                 />
                 {errors.rating && <p className={s.content2}>{errors.rating}</p>}
-                <label for={"name"} className={s.label}>
+                <label htmlFor={"name"} className={s.label}>
                   <span className={s.content}>Rating</span>
                 </label>
               </div>
@@ -88,7 +88,7 @@ export default function CreateVideogame() {
                 {errors.description && (
                   <p className={s.content2}>{errors.description}</p>
                 )}
-                <label for={"name"} className={s.label}>
+                <label htmlFor={"name"} className={s.label}>
                   <span className={s.content}>Description</span>
                 </label>
               </div>

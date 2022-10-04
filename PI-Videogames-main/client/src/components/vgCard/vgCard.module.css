@@ -81,19 +81,3 @@
   font-weight: 900;
   letter-spacing: 1px;
 }
-
-.info {
-  color: #f990e8;
-  text-decoration: none;
-  font-size: 35px;
-  z-index: 10;
-  position: absolute;
-  margin-bottom: 45px;
-  margin-top: -10px;
-}
-
-.info:hover {
-  color: #0bd2d3;
-  transform: rotateY(180deg);
-  transition: 0.5s;
-}
