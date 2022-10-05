@@ -16,8 +16,7 @@ function Home() {
   const videogames = useSelector((state) => state.filtered);
   useEffect(() => {
     dispatch(getVideogames());
-  }, []);
-
+  }, [dispatch]);
   /* ==================PAGINATION==================== */
   const [currentPage, setCurrentPage] = useState(1);
   const [videogamesPerPage] = useState(15);
@@ -37,7 +36,7 @@ function Home() {
   };
   return (
     <div className={s.homeContainer}>
-      {currentVideogames.length > 1 ? (
+      {currentVideogames.length > 0 ? (
         <div>
           <Nav />
 

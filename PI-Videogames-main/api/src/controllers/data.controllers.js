@@ -55,7 +55,6 @@ const getDbInfo = async () => {
     };
   });
 
-  console.log(dbInfo);
   return dbInfo;
 };
 

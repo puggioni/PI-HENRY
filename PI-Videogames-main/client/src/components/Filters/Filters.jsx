@@ -74,12 +74,7 @@ const Filters = () => {
           </option>
         </select>
         {/* ===================CREATED=================== */}
-        <select
-          className={s.filterSelector}
-          onChange={handleSelectr3}
-          name=""
-          id=""
-        >
+        <select className={s.filterSelector} onChange={handleSelectr3}>
           <option className={s.filterOption} value="Todos">
             Created...
           </option>

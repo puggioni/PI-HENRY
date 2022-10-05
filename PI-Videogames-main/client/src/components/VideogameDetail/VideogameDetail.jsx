@@ -3,7 +3,7 @@ import image from "../../assets/images/create-game-img.jpg";
 import Nav from "../Nav/Nav";
 import s from "./VideogameDetail.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { getDetails, deleteVideogame } from "../../actions/index.js";
 import { useNavigate } from "react-router-dom";
@@ -13,9 +13,7 @@ const VideogameDetail = () => {
   const videogame = useSelector((state) => state.details);
   const dispatch = useDispatch();
   const { id } = useParams();
-  useEffect(() => {
-    dispatch(getDetails(id));
-  });
+
   useEffect(() => {
     dispatch(getDetails(id));
   }, [dispatch]);
@@ -41,11 +39,18 @@ const VideogameDetail = () => {
             {/* =================TITLE================= */}
             <div className={s.titleContainer}>
               <h1>{videogame.name}</h1>
-              {typeof videogame.id === "number" ? null : (
-                <button onClick={handleClick} className={s.deleteBtn}>
-                  Delete Game
-                </button>
-              )}
+              <div className={s.btnContainer}>
+                {typeof videogame.id === "number" ? null : (
+                  <button onClick={handleClick} className={s.deleteBtn}>
+                    Delete Game
+                  </button>
+                )}
+                {typeof videogame.id === "number" ? null : (
+                  <Link to={`/videogame/${videogame.id}/update`}>
+                    <button className={s.updateBtn}>Update Game</button>
+                  </Link>
+                )}
+              </div>
             </div>
             {/* =================GENRE================= */}
             <div className={s.dataContainer}>

@@ -24,6 +24,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         details: action.payload,
       };
+
     case "DELETE_VIDEOGAME":
       return {
         ...state,
@@ -99,22 +100,19 @@ function rootReducer(state = initialState, action) {
         filtered: allVgFiltered,
       };
     case "FILTER_BY_CREATED":
-      const allVg2 = state.videogames;
       if (action.payload === "Todos") {
-        return { ...state, filtered: allVg2 };
+        return { ...state, filtered: state.videogames };
       }
       if (action.payload === "DB") {
         return {
           ...state,
-          filtered: allVg2.filter((game) => typeof game.id === "string"),
+          filtered: state.videogames.filter((vg) => typeof vg.id === "string"),
         };
       }
       if (action.payload === "API") {
         return {
           ...state,
-          filtered: state.videogames.filter(
-            (game) => typeof game.id === "number"
-          ),
+          filtered: state.videogames.filter((vg) => typeof vg.id === "number"),
         };
       }
       break;

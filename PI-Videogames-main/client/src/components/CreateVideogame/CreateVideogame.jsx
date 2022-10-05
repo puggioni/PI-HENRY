@@ -10,10 +10,10 @@ export default function CreateVideogame() {
 
   useEffect(() => {
     dispatch(getPlatforms());
-  }, []);
+  }, [dispatch]);
   useEffect(() => {
     dispatch(getGenres());
-  }, []);
+  }, [dispatch]);
   const genres = useSelector((state) => state.genres);
 
   const platforms = useSelector((state) => state.platforms);
@@ -114,6 +114,7 @@ export default function CreateVideogame() {
                     value={input.platforms}
                     onChange={handlePlatform}
                   >
+                    <option value="Platforms">Platforms</option>
                     {platforms.map((p) => (
                       <option value={p.name}>{p.name}</option>
                     ))}
@@ -133,6 +134,7 @@ export default function CreateVideogame() {
                     value={input.genres}
                     onChange={handleGenre}
                   >
+                    <option value="Genres">Genres</option>
                     {genres.map((g) => (
                       <option value={g.name}>{g.name}</option>
                     ))}
