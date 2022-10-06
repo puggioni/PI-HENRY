@@ -47,7 +47,6 @@ export default function CreateVideogame() {
                   value={input.name}
                   onChange={handleChange}
                   className={s.input}
-                  required
                 />
 
                 <label htmlFor={"name"} className={s.label}>
@@ -67,7 +66,6 @@ export default function CreateVideogame() {
                   value={input.rating}
                   onChange={handleChange}
                   className={s.input}
-                  required
                 />
                 {errors.rating && <p className={s.content2}>{errors.rating}</p>}
                 <label htmlFor={"name"} className={s.label}>
@@ -83,7 +81,6 @@ export default function CreateVideogame() {
                   value={input.description}
                   onChange={handleChange}
                   className={s.input}
-                  required
                 />
                 {errors.description && (
                   <p className={s.content2}>{errors.description}</p>

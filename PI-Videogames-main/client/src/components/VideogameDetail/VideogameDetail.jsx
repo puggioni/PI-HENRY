@@ -45,11 +45,6 @@ const VideogameDetail = () => {
                     Delete Game
                   </button>
                 )}
-                {typeof videogame.id === "number" ? null : (
-                  <Link to={`/videogame/${videogame.id}/update`}>
-                    <button className={s.updateBtn}>Update Game</button>
-                  </Link>
-                )}
               </div>
             </div>
             {/* =================GENRE================= */}

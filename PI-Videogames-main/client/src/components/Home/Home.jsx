@@ -65,6 +65,7 @@ function Home() {
                   genres={g.genres}
                   image={g.background_image}
                   id={g.id}
+                  released={g.released}
                 />
               ))
             ) : (
