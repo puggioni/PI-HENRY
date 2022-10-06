@@ -5,6 +5,7 @@ import Landing from "./components/Landing/Landing";
 import VideogameDetail from "./components/VideogameDetail/VideogameDetail";
 import CreateVideogame from "./components/CreateVideogame/CreateVideogame";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
+import ReactPlayer from "react-player";
 function App() {
   return (
     <Router>
@@ -15,6 +16,13 @@ function App() {
         <Route path="/videogame/:id" element={<VideogameDetail />} />
         <Route path="/videogame" element={<CreateVideogame />} />
       </Routes>
+      <ReactPlayer
+        url={`https://www.youtube.com/watch?v=wOMwO5T3yT4&ab_channel=Asthenic`}
+        playing={true}
+        loop={true}
+        style={{ display: "none" }}
+        volume={0.2}
+      />
     </Router>
   );
 }
