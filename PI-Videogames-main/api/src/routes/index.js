@@ -8,7 +8,6 @@ const {
   getVideogameById,
   createVideogame,
   deleteVideogame,
-  getVideogames2,
 } = require("../controllers/videogames.controller");
 const { getGenres } = require("../controllers/genre.controller");
 const { platforms } = require("../controllers/platform.controller");
@@ -21,6 +20,5 @@ router.get("/videogames", getVideogames);
 router.get("/genres", getGenres);
 router.get("/platforms", platforms);
 router.post("/videogames", createVideogame);
-router.get("/videogames/prueba/:param", getVideogames2);
 
 module.exports = router;

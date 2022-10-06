@@ -90,5 +90,4 @@ module.exports = {
   getVideogameById,
   createVideogame,
   deleteVideogame,
-  getVideogames2,
 };

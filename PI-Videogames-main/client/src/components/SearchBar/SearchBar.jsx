@@ -43,9 +43,6 @@ class SearchBar extends React.Component {
           >
             <AiOutlineSearch />
           </button>
-          <button className={s.searchButton} onClick={(e) => this.showAll(e)}>
-            Show all games
-          </button>
         </form>
       </div>
     );

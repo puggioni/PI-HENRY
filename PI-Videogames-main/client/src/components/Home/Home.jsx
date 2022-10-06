@@ -42,16 +42,15 @@ function Home() {
 
           <Filters />
           {/* ==============PAGINATION============== */}
-
-          <Pagination
-            totalVideogames={videogames.length}
-            videogamesPerPage={videogamesPerPage}
-            paginate={paginate}
-            getPrevious={getPrevious}
-            getNext={getNext}
-          ></Pagination>
-          <div>
-            <p className={s.pageNumber}>{currentPage}</p>
+          <div className={s.pagContainer}>
+            <Pagination
+              totalVideogames={videogames.length}
+              videogamesPerPage={videogamesPerPage}
+              paginate={paginate}
+              getPrevious={getPrevious}
+              getNext={getNext}
+              className={s.pagination}
+            ></Pagination>
           </div>
 
           {/* ==============CARD SECTION============== */}
