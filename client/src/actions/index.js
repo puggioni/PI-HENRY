@@ -13,29 +13,27 @@ import {
 
 export function getVideogames() {
   return async function(dispatch) {
-    const response = await axios.get("http://localhost:3001/videogames");
+    const response = await axios.get("/videogames");
     dispatch({ type: GET_VIDEOGAMES, payload: response.data });
   };
 }
 export function getDetails(id) {
   return async function(dispatch) {
-    const response = await axios.get(`http://localhost:3001/videogame/${id}`);
+    const response = await axios.get(`/videogame/${id}`);
     dispatch({ type: GET_DETAILS, payload: response.data });
   };
 }
 
 export function deleteVideogame(id) {
   return async function(dispatch) {
-    await axios.delete(`http://localhost:3001/videogame/${id}`);
+    await axios.delete(`/videogame/${id}`);
     dispatch({ type: DELETE_VIDEOGAME, payload: id });
   };
 }
 export function searchByName(name) {
   return async function(dispatch) {
     try {
-      const response = await axios.get(
-        `http://localhost:3001/videogames?name=${name}`
-      );
+      const response = await axios.get(`/videogames?name=${name}`);
       dispatch({ type: SEARCH_BY_NAME, payload: response.data });
     } catch (error) {
       console.log(error);
@@ -45,7 +43,7 @@ export function searchByName(name) {
 
 export function getGenres() {
   return async function(dispatch) {
-    const response = await axios.get("http://localhost:3001/genres");
+    const response = await axios.get("/genres");
     dispatch({ type: GET_GENRES, payload: response.data });
   };
 }
@@ -68,17 +66,14 @@ export function filterByCreated(created) {
 }
 export function createVideogame(payload) {
   return async function() {
-    const response = await axios.post(
-      "http://localhost:3001/videogames",
-      payload
-    );
+    const response = await axios.post("/videogames", payload);
     return response;
   };
 }
 
 export function getPlatforms() {
   return async function(dispatch) {
-    const response = await axios.get("http://localhost:3001/platforms");
+    const response = await axios.get("/platforms");
     dispatch({ type: GET_PLATFORMS, payload: response.data });
   };
 }

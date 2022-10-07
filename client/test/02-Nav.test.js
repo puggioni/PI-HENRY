@@ -25,7 +25,6 @@ test("The first link should be Henry Games and change the route to /videogames",
 test("The second link should be Create a Game and change the route to /videogame", () => {
   render(
     <Router>
-      das
       <Nav />
     </Router>
   );
