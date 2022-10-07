@@ -17,7 +17,9 @@ function App() {
         <Route path="/videogame" element={<CreateVideogame />} />
       </Routes>
       <ReactPlayer
-        url={`https://www.youtube.com/watch?v=wOMwO5T3yT4&ab_channel=Asthenic`}
+        url={
+          "https://www.youtube.com/watch?v=h7tpVaGSk-4&ab_channel=ThePrimeThanatos"
+        }
         playing={true}
         loop={true}
         style={{ display: "none" }}
