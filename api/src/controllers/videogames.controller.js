@@ -33,7 +33,7 @@ const getVideogameById = async (req, res) => {
       : res.status(404).send("No se encontró ningún juego con ese id");
   } else {
     const response = await axios.get(
-      `https://api.rawg.io/api/games/${id}?key=${API_KEY}`
+      `https://api.rawg.io/api/games/${id}?key=8ffe28d1255b4c808087052bef21f939`
     );
     const game = response.data;
     const videogame = {

@@ -5,13 +5,19 @@ const { API_KEY } = process.env;
 const getApiInfo = async () => {
   try {
     const response1 = axios
-      .get(`https://api.rawg.io/api/games?key=${API_KEY}&page_size=20&page=1`)
+      .get(
+        `https://api.rawg.io/api/games?key=8ffe28d1255b4c808087052bef21f939&page_size=20&page=1`
+      )
       .then((res) => res.data.results);
     const response2 = axios
-      .get(`https://api.rawg.io/api/games?key=${API_KEY}&page_size=40&page=2`)
+      .get(
+        `https://api.rawg.io/api/games?key=8ffe28d1255b4c808087052bef21f939&page_size=40&page=2`
+      )
       .then((res) => res.data.results);
     const response3 = axios
-      .get(`https://api.rawg.io/api/games?key=${API_KEY}&page_size=40&page=3`)
+      .get(
+        `https://api.rawg.io/api/games?key=8ffe28d1255b4c808087052bef21f939&page_size=40&page=3`
+      )
       .then((res) => res.data.results);
     const apiInfo = await Promise.all([response1, response2, response3]);
     const videogames = apiInfo.flat().map((game) => {
