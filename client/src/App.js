@@ -21,7 +21,7 @@ function App() {
         playing={true}
         loop={true}
         style={{ display: "none" }}
-        volume={0.1}
+        volume={0.5}
       />
     </Router>
   );
